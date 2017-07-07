@@ -37,7 +37,7 @@ def readSocket(sock, size, readSize):
 			print("data read not of correct lengt. Length is %d and should be %d" % (len(data), size))
 			return None
 
-TOKEN = 'Your secret 128 bit long token.'
+TOKEN = '9SEB3boMu5KpFRTj5cncYUNmvVAd35xfsneynrfQhkTJYO1ub7zReuYShKaOr7Ougxaa3vJVfuU0zhDIVMbn6IK6EzEqqNlz2reS0gusSv0d85nv3YFaXC5z5NNT2jif' # Replace with your secret 128 bit long token.
 HOST = 'ai-stream.flightmate.com'
 PORT = 55555
 
