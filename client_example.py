@@ -1,52 +1,88 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3.6
 
-import socket, zlib, struct
-import ssl
+import socket, select
+import struct
+from binascii import crc32
 
-# AUTH PACKETS, THIS IS WHERE YOU WILL PLACE THE KEYS YOU GET FROM FLIGHTMATE
-# BELOW ARE JUST SAMPLE KEYS
-authPackets = [
-	'oUH3P1EVkErSoZ4vfp6oZ6tc5MmYjaC1VeA9gMwkPF2z4BNkAoIggDLJYu7QjnTIWuTAYtik6nADaaF1cKT37obwdT3xIXos4WuJSbTHzo9a1O4rO6ztvGjfnzz5W3xh',
-	'n7dQqhNP4X9pWFrou3W5xQMTKpFI7t2EKc6gtVCE2qwsfIYnRyFjjrXs9knMMBYm81x03uxf26ZoaUezSWKqBnfMZjN9LwNvZgO50NKvGfmdBL0jLzkDh6Gihgg22W6e'
-	]
+def readSocket(sock, size, readSize):
+		"""
+		Reads a certain amount of data from a socket. This function does not close 
+		the socket but returns None if the socket breaks before reading the 
+		specified amount of data.
+		:param socket sock: The socket to read from.
+		:param int size: The amount of bytes to read from the socket.
+		:return binary: The data read if the specified amount of data was succesfully 
+		read otherwise None.
+		"""
+		totRead = 0
+		chunks = []
+		while totRead < size:
+			sizeLeft = size - totRead
+			if sizeLeft < readSize:
+				readSize = sizeLeft
+			try:
+				chunk = sock.recv(readSize)
+			except:
+				print("Error receivning chunk")
+				return None
+			chunkSize = len(chunk)
+			if chunkSize == 0:
+				raise BrokenPipeError("The socket connection has been broken.")
+			totRead += chunkSize
+			chunks.append(chunk)
+		data = b''.join(chunks)
+		if len(data) == size:
+			return data
+		else:
+			print("data read not of correct lengt. Length is %d and should be %d" % (len(data), size))
+			return None
 
-# SERVER INFORMATION
-HOST = '127.0.0.1'
-PORT = 5000
+TOKEN = 'Your secret 128 bit long token.'
+HOST = 'ai-stream.flightmate.com'
+PORT = 55555
 
-# CREATE SOCKET
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.settimeout(20)
 
-# WRAP SOCKET
-wrappedSocket = ssl.wrap_socket(sock, ssl_version=ssl.PROTOCOL_TLSv1_2)
+try:
+	# Connect to the stream server
+	sock.connect((HOST, PORT))
 
-# CONNECT AND PRINT REPLY
-wrappedSocket.connect((HOST, PORT))
+	# Create the authentication packet
+	body = TOKEN.encode('utf-8')
+	bodyLength = len(body)
+	preHeader = struct.pack('!LB', bodyLength, 3)
+	message = preHeader + body
+	checksum = crc32(message)
+	header = struct.pack('!LLB', checksum, bodyLength, 3)
+	authenticationPacket = header + body
 
-while True:
-	# SEND AUTHENTICATION PACKET(S)
-	for authPacket in authPackets:
-		wrappedSocket.send(authPacket)
+	# Send the authentication packet
+	sock.sendall(authenticationPacket)
 
-	# GET BYTE LENGTH OF INCOMING PACKET
-	# !I = unsigned int with big endian, type size = 4 byte
-	dataToRead = struct.unpack("!I", wrappedSocket.read(4))[0]
-	data = ""
-	data_counter = 0
+	# Receive data
+	running = True
+	while running:
+		readables, writable, exceptional = select.select([sock], [], [])
+		for readable in readables:
+			# Read header
+			headerData = readSocket(sock, 9, 9)
+			if not headerData:
+				continue
+			header = struct.unpack('!LLB', headerData)
 
-	# RECEIVE CHUNKS UNTIL dataToRead bytes IS READ
-	while data_counter < dataToRead:
-		temp_data = wrappedSocket.recv(1024)
-		data_counter += len(temp_data)
-		data += temp_data
-	
-	# DECOMPRESS THE DATA
-	decompressed = zlib.decompress(data)
+			# Read body
+			bodySize = header[1]
+			body = readSocket(sock, bodySize, 4096)
 
-	# HERE IS WHERE YOUR PROCESSING WILL START
-	print(decompressed)
+			# Control checksum
+			checksum = header[0]
+			message = struct.pack('!LB', header[1], header[2]) + body
+			if crc32(message) != checksum:
+				print("Checksum failed")
+				continue;
 
-# CLOSE SOCKET CONNECTION will never happen
-wrappedSocket.close()
+			print(body.decode('utf-8'))
 
+finally:
+	sock.close()
