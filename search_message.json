@@ -1,1 +1,1056 @@
-{"to": "CDG", "from": "ARN", "leaveDate": "2018-03-01", "flights": [{"searchIdentifier": "84dc692b", "agents": [{"price": 1304, "name": "your ota"}, {"price": 1400, "name": "your ota"}, {"price": 1555, "name": "unknown"}, {"price": 1561, "name": "your ota"}, {"price": 1652, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO456", "arrivalDate": "2018-03-01 09:30", "arrivalAirport": "WAW", "departureDate": "2018-03-01 07:55", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO331", "arrivalDate": "2018-03-02 09:50", "arrivalAirport": "CDG", "departureDate": "2018-03-02 07:20", "traveltime": 9000, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO336", "arrivalDate": "2018-03-02 21:55", "arrivalAirport": "WAW", "departureDate": "2018-03-02 19:40", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO453", "arrivalDate": "2018-03-03 09:50", "arrivalAirport": "ARN", "departureDate": "2018-03-03 08:05", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "296a128b", "agents": [{"price": 1364, "name": "unknown"}, {"price": 1465, "name": "your ota"}, {"price": 1466, "name": "unknown"}, {"price": 1466, "name": "your ota"}, {"price": 1467, "name": "unknown"}, {"price": 1493, "name": "unknown"}, {"price": 1494, "name": "unknown"}, {"price": 1507, "name": "your ota"}, {"price": 1521, "name": "unknown"}, {"price": 1533, "name": "unknown"}, {"price": 1545, "name": "unknown"}, {"price": 1546, "name": "unknown"}, {"price": 1555, "name": "unknown"}, {"price": 1561, "name": "your ota"}, {"price": 1561, "name": "unknown"}, {"price": 1581, "name": "unknown"}, {"price": 1604, "name": "unknown"}, {"price": 1610, "name": "unknown"}, {"price": 1616, "name": "unknown"}, {"price": 1623, "name": "unknown"}, {"price": 1716, "name": "unknown"}, {"price": 1723, "name": "unknown"}, {"price": 1929, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO456", "arrivalDate": "2018-03-01 09:30", "arrivalAirport": "WAW", "departureDate": "2018-03-01 07:55", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO332", "arrivalDate": "2018-03-02 12:50", "arrivalAirport": "WAW", "departureDate": "2018-03-02 10:35", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO455", "arrivalDate": "2018-03-02 21:30", "arrivalAirport": "ARN", "departureDate": "2018-03-02 19:45", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "a76403fd", "agents": [{"price": 1388, "name": "your ota"}, {"price": 1491, "name": "your ota"}, {"price": 1638, "name": "unknown"}, {"price": 1663, "name": "unknown"}, {"price": 1669, "name": "your ota"}, {"price": 1689, "name": "unknown"}, {"price": 1709, "name": "unknown"}, {"price": 1719, "name": "unknown"}, {"price": 1732, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO454", "arrivalDate": "2018-03-01 12:05", "arrivalAirport": "WAW", "departureDate": "2018-03-01 10:30", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO331", "arrivalDate": "2018-03-02 09:50", "arrivalAirport": "CDG", "departureDate": "2018-03-02 07:20", "traveltime": 9000, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO336", "arrivalDate": "2018-03-02 21:55", "arrivalAirport": "WAW", "departureDate": "2018-03-02 19:40", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO453", "arrivalDate": "2018-03-03 09:50", "arrivalAirport": "ARN", "departureDate": "2018-03-03 08:05", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "d07ebfba", "agents": [{"price": 1465, "name": "your ota"}, {"price": 1494, "name": "unknown"}, {"price": 1507, "name": "your ota"}, {"price": 1521, "name": "unknown"}, {"price": 1533, "name": "unknown"}, {"price": 1555, "name": "unknown"}, {"price": 1561, "name": "your ota"}, {"price": 1561, "name": "unknown"}, {"price": 1581, "name": "unknown"}, {"price": 1604, "name": "unknown"}, {"price": 1616, "name": "unknown"}, {"price": 1715, "name": "unknown"}, {"price": 1723, "name": "unknown"}, {"price": 1929, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO456", "arrivalDate": "2018-03-01 09:30", "arrivalAirport": "WAW", "departureDate": "2018-03-01 07:55", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO334", "arrivalDate": "2018-03-02 09:45", "arrivalAirport": "WAW", "departureDate": "2018-03-02 07:30", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO455", "arrivalDate": "2018-03-02 21:30", "arrivalAirport": "ARN", "departureDate": "2018-03-02 19:45", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "2699b47a", "agents": [{"price": 1465, "name": "your ota"}, {"price": 1494, "name": "unknown"}, {"price": 1507, "name": "your ota"}, {"price": 1521, "name": "unknown"}, {"price": 1533, "name": "unknown"}, {"price": 1555, "name": "unknown"}, {"price": 1561, "name": "your ota"}, {"price": 1561, "name": "unknown"}, {"price": 1581, "name": "unknown"}, {"price": 1604, "name": "unknown"}, {"price": 1610, "name": "unknown"}, {"price": 1616, "name": "unknown"}, {"price": 1623, "name": "unknown"}, {"price": 1624, "name": "unknown"}, {"price": 1723, "name": "unknown"}, {"price": 1929, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO456", "arrivalDate": "2018-03-01 09:30", "arrivalAirport": "WAW", "departureDate": "2018-03-01 07:55", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO336", "arrivalDate": "2018-03-02 21:55", "arrivalAirport": "WAW", "departureDate": "2018-03-02 19:40", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO453", "arrivalDate": "2018-03-03 09:50", "arrivalAirport": "ARN", "departureDate": "2018-03-03 08:05", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "308d88d7", "agents": [{"price": 1465, "name": "your ota"}, {"price": 1494, "name": "unknown"}, {"price": 1521, "name": "unknown"}, {"price": 1555, "name": "unknown"}, {"price": 1561, "name": "your ota"}, {"price": 1561, "name": "unknown"}, {"price": 1715, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO456", "arrivalDate": "2018-03-01 09:30", "arrivalAirport": "WAW", "departureDate": "2018-03-01 07:55", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO334", "arrivalDate": "2018-03-02 09:45", "arrivalAirport": "WAW", "departureDate": "2018-03-02 07:30", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO453", "arrivalDate": "2018-03-03 09:50", "arrivalAirport": "ARN", "departureDate": "2018-03-03 08:05", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "0ad2785d", "agents": [{"price": 1472, "name": "unknown"}, {"price": 1476, "name": "your ota"}, {"price": 1517, "name": "unknown"}, {"price": 1517, "name": "your ota"}, {"price": 1518, "name": "unknown"}, {"price": 1550, "name": "your ota"}, {"price": 1602, "name": "unknown"}, {"price": 1638, "name": "unknown"}, {"price": 1651, "name": "unknown"}, {"price": 1660, "name": "unknown"}, {"price": 1663, "name": "unknown"}, {"price": 1669, "name": "your ota"}, {"price": 1689, "name": "unknown"}, {"price": 1709, "name": "unknown"}, {"price": 1719, "name": "unknown"}, {"price": 1731, "name": "unknown"}, {"price": 1822, "name": "unknown"}, {"price": 1832, "name": "unknown"}, {"price": 2037, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO454", "arrivalDate": "2018-03-01 12:05", "arrivalAirport": "WAW", "departureDate": "2018-03-01 10:30", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO332", "arrivalDate": "2018-03-02 12:50", "arrivalAirport": "WAW", "departureDate": "2018-03-02 10:35", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO455", "arrivalDate": "2018-03-02 21:30", "arrivalAirport": "ARN", "departureDate": "2018-03-02 19:45", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "f3c6d56c", "agents": [{"price": 1472, "name": "unknown"}, {"price": 1476, "name": "your ota"}, {"price": 1517, "name": "unknown"}, {"price": 1517, "name": "your ota"}, {"price": 1518, "name": "unknown"}, {"price": 1602, "name": "unknown"}, {"price": 1638, "name": "unknown"}, {"price": 1651, "name": "unknown"}, {"price": 1663, "name": "unknown"}, {"price": 1669, "name": "your ota"}, {"price": 1689, "name": "unknown"}, {"price": 1709, "name": "unknown"}, {"price": 1719, "name": "unknown"}, {"price": 1822, "name": "unknown"}, {"price": 1832, "name": "unknown"}, {"price": 2037, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO454", "arrivalDate": "2018-03-01 12:05", "arrivalAirport": "WAW", "departureDate": "2018-03-01 10:30", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO334", "arrivalDate": "2018-03-02 09:45", "arrivalAirport": "WAW", "departureDate": "2018-03-02 07:30", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO455", "arrivalDate": "2018-03-02 21:30", "arrivalAirport": "ARN", "departureDate": "2018-03-02 19:45", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "0521deac", "agents": [{"price": 1472, "name": "unknown"}, {"price": 1517, "name": "unknown"}, {"price": 1517, "name": "your ota"}, {"price": 1518, "name": "unknown"}, {"price": 1573, "name": "your ota"}, {"price": 1602, "name": "unknown"}, {"price": 1615, "name": "your ota"}, {"price": 1638, "name": "unknown"}, {"price": 1651, "name": "unknown"}, {"price": 1663, "name": "unknown"}, {"price": 1669, "name": "your ota"}, {"price": 1689, "name": "unknown"}, {"price": 1709, "name": "unknown"}, {"price": 1719, "name": "unknown"}, {"price": 1731, "name": "unknown"}, {"price": 1732, "name": "unknown"}, {"price": 1832, "name": "unknown"}, {"price": 2037, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO454", "arrivalDate": "2018-03-01 12:05", "arrivalAirport": "WAW", "departureDate": "2018-03-01 10:30", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO336", "arrivalDate": "2018-03-02 21:55", "arrivalAirport": "WAW", "departureDate": "2018-03-02 19:40", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO453", "arrivalDate": "2018-03-03 09:50", "arrivalAirport": "ARN", "departureDate": "2018-03-03 08:05", "traveltime": 6300, "departureAirport": "WAW"}]}]}, {"searchIdentifier": "c99925e6", "agents": [{"price": 1494, "name": "unknown"}, {"price": 1507, "name": "your ota"}, {"price": 1521, "name": "unknown"}, {"price": 1555, "name": "unknown"}, {"price": 1561, "name": "your ota"}, {"price": 1561, "name": "unknown"}, {"price": 1581, "name": "unknown"}, {"price": 1624, "name": "unknown"}, {"price": 1715, "name": "unknown"}, {"price": 1764, "name": "unknown"}, {"price": 1835, "name": "unknown"}, {"price": 1844, "name": "unknown"}], "trips": [{"segments": [{"flight": "LO456", "arrivalDate": "2018-03-01 09:30", "arrivalAirport": "WAW", "departureDate": "2018-03-01 07:55", "traveltime": 5700, "departureAirport": "ARN"}, {"flight": "LO335", "arrivalDate": "2018-03-01 18:50", "arrivalAirport": "CDG", "departureDate": "2018-03-01 16:25", "traveltime": 8700, "departureAirport": "WAW"}]}, {"segments": [{"flight": "LO332", "arrivalDate": "2018-03-02 12:50", "arrivalAirport": "WAW", "departureDate": "2018-03-02 10:35", "traveltime": 8100, "departureAirport": "CDG"}, {"flight": "LO453", "arrivalDate": "2018-03-03 09:50", "arrivalAirport": "ARN", "departureDate": "2018-03-03 08:05", "traveltime": 6300, "departureAirport": "WAW"}]}]}], "childrenAges": "", "showresultId": "379197765", "tripType": "1", "domain": "flygresor.se", "searchTimestamp": 1518764153, "ticketType": "0", "homeDate": "2018-03-02", "adults": "1"}
+{
+  "tripType": "1",
+  "to": "LED",
+  "flights": [
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "unknown",
+          "price": 1562
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 1890
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2089
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2167
+        },
+        {
+          "name": "unknown",
+          "price": 2191
+        },
+        {
+          "name": "unknown",
+          "price": 2773
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 21:00",
+              "arrivalDate": "2018-07-26 23:00",
+              "arrivalAirport": "HEL",
+              "flight": "AY820",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 14:05",
+              "arrivalDate": "2018-08-06 14:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY809",
+              "traveltime": 3300,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "59b7f425824f686cdc539cdf88bb1eb4"
+    },
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "unknown",
+          "price": 1562
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 1913
+        },
+        {
+          "name": "unknown",
+          "price": 2089
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2444
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 21:00",
+              "arrivalDate": "2018-07-26 23:00",
+              "arrivalAirport": "HEL",
+              "flight": "AY820",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 16:00",
+              "arrivalDate": "2018-08-06 16:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY813",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "8f60b41804173a9a5c1a3a9b0f479cc6"
+    },
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "unknown",
+          "price": 1562
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2191
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 16:35",
+              "arrivalDate": "2018-07-26 18:35",
+              "arrivalAirport": "HEL",
+              "flight": "AY814",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 14:05",
+              "arrivalDate": "2018-08-06 14:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY809",
+              "traveltime": 3300,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "293cc14c687dbef46c33c58b91d6ad38"
+    },
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2167
+        },
+        {
+          "name": "unknown",
+          "price": 2191
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 21:00",
+              "arrivalDate": "2018-07-26 23:00",
+              "arrivalAirport": "HEL",
+              "flight": "AY820",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 19:35",
+              "arrivalDate": "2018-08-06 20:25",
+              "arrivalAirport": "HEL",
+              "flight": "AY706",
+              "traveltime": 3000,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-07 08:50",
+              "arrivalDate": "2018-08-07 08:50",
+              "arrivalAirport": "ARN",
+              "flight": "AY803",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "2c5e2deb3ca98c3184e7826c4002f5c6"
+    },
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2191
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 14:35",
+              "arrivalDate": "2018-07-26 16:35",
+              "arrivalAirport": "HEL",
+              "flight": "AY810",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 14:05",
+              "arrivalDate": "2018-08-06 14:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY809",
+              "traveltime": 3300,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "e85adce394a6f090913585fe41a196b6"
+    },
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 21:00",
+              "arrivalDate": "2018-07-26 23:00",
+              "arrivalAirport": "HEL",
+              "flight": "AY820",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 20:25",
+              "arrivalDate": "2018-08-06 20:25",
+              "arrivalAirport": "ARN",
+              "flight": "AY819",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "22bdf61e9c259c605b6d33ef6c716e1e"
+    },
+    {
+      "agents": [
+        {
+          "name": "unknown",
+          "price": 1543
+        },
+        {
+          "name": "your ota",
+          "price": 1544
+        },
+        {
+          "name": "unknown",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 1913
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 16:35",
+              "arrivalDate": "2018-07-26 18:35",
+              "arrivalAirport": "HEL",
+              "flight": "AY814",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 16:00",
+              "arrivalDate": "2018-08-06 16:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY813",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "e5eb57914bfc886cb91c88f37e866956"
+    },
+    {
+      "agents": [
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2191
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 13:15",
+              "arrivalDate": "2018-07-26 15:10",
+              "arrivalAirport": "HEL",
+              "flight": "AY804",
+              "traveltime": 3300,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 14:05",
+              "arrivalDate": "2018-08-06 14:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY809",
+              "traveltime": 3300,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "2c3971a7b3388009895ca0e903be0b74"
+    },
+    {
+      "agents": [
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 1913
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 14:35",
+              "arrivalDate": "2018-07-26 16:35",
+              "arrivalAirport": "HEL",
+              "flight": "AY810",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 06:00",
+              "arrivalDate": "2018-08-06 06:55",
+              "arrivalAirport": "HEL",
+              "flight": "AY704",
+              "traveltime": 3300,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-06 16:00",
+              "arrivalDate": "2018-08-06 16:00",
+              "arrivalAirport": "ARN",
+              "flight": "AY813",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "f218a9e4adae7ae3fda594b37f0aa2ab"
+    },
+    {
+      "agents": [
+        {
+          "name": "your ota",
+          "price": 1545
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "your ota",
+          "price": 1659
+        },
+        {
+          "name": "unknown",
+          "price": 1680
+        },
+        {
+          "name": "unknown",
+          "price": 1688
+        },
+        {
+          "name": "unknown",
+          "price": 1689
+        },
+        {
+          "name": "unknown",
+          "price": 1864
+        },
+        {
+          "name": "unknown",
+          "price": 2082
+        },
+        {
+          "name": "unknown",
+          "price": 2139
+        },
+        {
+          "name": "unknown",
+          "price": 2163
+        },
+        {
+          "name": "unknown",
+          "price": 2191
+        },
+        {
+          "name": "unknown",
+          "price": 3900
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "departureDate": "2018-07-26 16:35",
+              "arrivalDate": "2018-07-26 18:35",
+              "arrivalAirport": "HEL",
+              "flight": "AY814",
+              "traveltime": 3600,
+              "departureAirport": "ARN"
+            },
+            {
+              "departureDate": "2018-07-26 23:45",
+              "arrivalDate": "2018-07-27 00:45",
+              "arrivalAirport": "LED",
+              "flight": "AY703",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "departureDate": "2018-08-06 19:35",
+              "arrivalDate": "2018-08-06 20:25",
+              "arrivalAirport": "HEL",
+              "flight": "AY706",
+              "traveltime": 3000,
+              "departureAirport": "LED"
+            },
+            {
+              "departureDate": "2018-08-07 08:50",
+              "arrivalDate": "2018-08-07 08:50",
+              "arrivalAirport": "ARN",
+              "flight": "AY803",
+              "traveltime": 3600,
+              "departureAirport": "HEL"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "f05a965242413fb18eea851c35380595"
+    }
+  ],
+  "childrenAges": "",
+  "domain": "flygresor.se",
+  "leaveDate": "2018-07-26",
+  "homeDate": "2018-08-06",
+  "adults": "1",
+  "searchTimestamp": "1526985900",
+  "from": "ARN",
+  "ticketType": "0"
+}
