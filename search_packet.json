@@ -1,0 +1,168 @@
+{
+	"from": "ARN",
+	"to": "AMS",
+	"domain": "flygresor.se",
+	"tripType": "1",
+	"ticketType": "0",
+	"adults": "1",
+	"childrenAges": "",
+	"isBaggageIncluded": false,
+	"homeDate": "2019-02-10",
+	"leaveDate": "2019-02-03",
+	"searchTimestamp": "1544519658",
+	"legs": [
+		{
+			"to": "AMS",
+			"from": "ARN",
+			"date": "2019-02-03"
+		},
+		{
+			"to": "ARN",
+			"from": "AMS",
+			"date": "2019-02-10"
+		}
+	],
+	"flights": [
+		{
+			"trips": [
+				{
+					"segments": [
+						{
+							"departureAirport": "ARN",
+							"departureDate": "2019-02-03 15:10",
+							"flight": "SK1407",
+							"arrivalAirport": "CPH",
+							"traveltime": 4200,
+							"arrivalDate": "2019-02-03 16:20"
+						},
+						{
+							"departureAirport": "CPH",
+							"departureDate": "2019-02-04 15:25",
+							"flight": "SK1549",
+							"arrivalAirport": "AMS",
+							"traveltime": 5100,
+							"arrivalDate": "2019-02-04 16:50"
+						}
+					]
+				},
+				{
+					"segments": [
+						{
+							"departureAirport": "AMS",
+							"departureDate": "2019-02-10 19:30",
+							"flight": "SK1556",
+							"arrivalAirport": "ARN",
+							"traveltime": 7200,
+							"arrivalDate": "2019-02-10 21:30"
+						}
+					]
+				}
+			],
+			"agents": [
+				{
+					"name": "<ota_name>",
+					"price": 1331
+				},
+				{
+					"name": "<ota_name>",
+					"price": 1332
+				}
+			],
+			"searchIdentifier": "985c2445d4d2d8e87b219ffccae5b3da"
+		},
+		{
+			"trips": [
+				{
+					"segments": [
+						{
+							"departureAirport": "ARN",
+							"departureDate": "2019-02-03 06:30",
+							"flight": "KL1104",
+							"arrivalAirport": "AMS",
+							"traveltime": 7800,
+							"arrivalDate": "2019-02-03 08:40"
+						}
+					]
+				},
+				{
+					"segments": [
+						{
+							"departureAirport": "AMS",
+							"departureDate": "2019-02-10 13:55",
+							"flight": "AF1641",
+							"arrivalAirport": "CDG",
+							"traveltime": 4500,
+							"arrivalDate": "2019-02-10 15:10"
+						},
+						{
+							"departureAirport": "CDG",
+							"departureDate": "2019-02-11 09:15",
+							"flight": "AF1262",
+							"arrivalAirport": "ARN",
+							"traveltime": 9300,
+							"arrivalDate": "2019-02-11 11:50"
+						}
+					]
+				}
+			],
+			"agents": [
+				{
+					"name": "<ota_name>",
+					"price": 1348
+				}
+			],
+			"searchIdentifier": "566d37b477aa820878deb95ad32ec9ac"
+		},
+		{
+			"trips": [
+				{
+					"segments": [
+						{
+							"departureAirport": "ARN",
+							"departureDate": "2019-02-03 13:20",
+							"flight": "DY4257",
+							"arrivalAirport": "AMS",
+							"traveltime": 7200,
+							"arrivalDate": "2019-02-03 15:20"
+						}
+					]
+				},
+				{
+					"segments": [
+						{
+							"departureAirport": "AMS",
+							"departureDate": "2019-02-10 08:05",
+							"flight": "AF8229",
+							"arrivalAirport": "CDG",
+							"traveltime": 5100,
+							"arrivalDate": "2019-02-10 09:30"
+						},
+						{
+							"departureAirport": "CDG",
+							"departureDate": "2019-02-10 21:00",
+							"flight": "AF1462",
+							"arrivalAirport": "ARN",
+							"traveltime": 9600,
+							"arrivalDate": "2019-02-10 23:40"
+						}
+					]
+				}
+			],
+			"agents": [
+				{
+					"name": "<ota_name>",
+					"price": 1354
+				},
+				{
+					"name": "<ota_name>",
+					"price": 1355
+				},
+				{
+					"name": "<ota_name>",
+					"price": 1364
+				}
+			],
+			"searchIdentifier": "1a7f235c98c421291e07c44c738fe869"
+		}
+	]
+}
