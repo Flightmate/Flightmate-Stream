@@ -4,28 +4,28 @@ import (
 	"crypto/tls"
 	"encoding/binary"
 	"flag"
+	"fmt"
 	"github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet"
 	"github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet"
 	"github.com/go-restruct/restruct"
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"hash/crc32"
+	"io/ioutil"
 	"log"
 	"net"
 	"os"
 	"os/signal"
-	"fmt"
 	"runtime"
 	"syscall"
 	"time"
-	"io/ioutil"
 )
 
 var client_conn net.Conn
 var client_connected = false
 var packets_received = 0
 
-// Parameters 
+// Parameters
 var print_json = false
 var token string
 var stdout = false
@@ -47,6 +47,17 @@ func checkSum(checksum uint32, data []byte) bool {
 	return false
 }
 
+func printLogic(packet proto.Message) {
+	if print_json || stdout {
+		json_data := protobufToJSON(*&packet)
+		if stdout {
+			fmt.Println(json_data)
+		} else if print_json {
+			log.Println("json: ", json_data)
+		}
+	}
+}
+
 func StartClient() {
 
 	defer func() {
@@ -63,7 +74,7 @@ func StartClient() {
 
 	if !client_connected {
 		// Connects to server
-		client_conn, _ = tls.Dial("tcp", "ai-stream.flightmate.com:444", config) 
+		client_conn, _ = tls.Dial("tcp", "ai-stream.flightmate.com:444", config)
 		client_connected = true
 		log.Println("Connected to Poststation")
 	}
@@ -93,9 +104,9 @@ func StartClient() {
 
 	data = data[9:]
 
-	if header.Message_Type == 1 {
-		if checkSum(header.Checksum, data) {
-			packets_received += 1
+	if checkSum(header.Checksum, data) {
+		packets_received += 1
+		if header.Message_Type == 1 {
 			searchPb := search_packet.Search_Packet{}
 
 			err := proto.Unmarshal(data[:length], &searchPb)
@@ -106,18 +117,8 @@ func StartClient() {
 			// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
 			log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
 
-			if print_json || stdout {
-				json_data := protobufToJSON(&searchPb)
-				if stdout {
-					fmt.Println(json_data)
-				}  else if print_json {
-					log.Println("json: ", json_data)
-				}  	
-			}
-		}
-	} else if header.Message_Type == 2 {
-		if checkSum(header.Checksum, data) {
-			packets_received += 1
+			printLogic(&searchPb)
+		} else if header.Message_Type == 2 {
 			clickPb := click_packet.Click_Packet{}
 
 			err := proto.Unmarshal(data[:length], &clickPb)
@@ -128,24 +129,17 @@ func StartClient() {
 			// log.Printf("%+v\n", clickPb) // <-- Prints entire packet in Protobuf
 			log.Printf("Received a click packet from %s to %s from %s", clickPb.From, clickPb.To, clickPb.Domain)
 
-			if print_json || stdout {
-				json_data := protobufToJSON(&clickPb)
-				if stdout {
-					fmt.Println(json_data)
-				}  else if print_json {
-					log.Println("json: ", json_data)
-				}  	
-			}
+			printLogic(&clickPb)
 		}
-		log.Println("packets received: ", packets_received)
 	}
+	// log.Println("packets received: ", packets_received)
 
 	go func() {
 		StartClient()
 	}()
 
-	// Prevents main (or startclient) from returning 
-	runtime.Goexit() 
+	// Prevents main (or startclient) from returning
+	runtime.Goexit()
 }
 
 func notifyPoststationDisconnect() {
@@ -170,7 +164,7 @@ func protobufToJSON(proto_message proto.Message) string {
 
 func main() {
 	// Prints line number when logging
-	log.SetFlags(log.LstdFlags | log.Lshortfile) 
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
 	token = "INSERT YOUR TOKEN HERE"
 
