@@ -14,16 +14,21 @@ import (
 	"net"
 	"os"
 	"os/signal"
+	"fmt"
 	"runtime"
 	"syscall"
 	"time"
+	"io/ioutil"
 )
 
 var client_conn net.Conn
 var client_connected = false
-var token string
-var print_json = false
 var packets_received = 0
+
+// Parameters 
+var print_json = false
+var token string
+var stdout = false
 
 type Head struct {
 	Checksum     uint32 //  0:4
@@ -101,9 +106,13 @@ func StartClient() {
 			// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
 			log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
 
-			if print_json {
+			if print_json || stdout {
 				json_data := protobufToJSON(&searchPb)
-				log.Println("json: ", json_data)
+				if stdout {
+					fmt.Println(json_data)
+				}  else if print_json {
+					log.Println("json: ", json_data)
+				}  	
 			}
 		}
 	} else if header.Message_Type == 2 {
@@ -119,9 +128,13 @@ func StartClient() {
 			// log.Printf("%+v\n", clickPb) // <-- Prints entire packet in Protobuf
 			log.Printf("Received a click packet from %s to %s from %s", clickPb.From, clickPb.To, clickPb.Domain)
 
-			if print_json {
+			if print_json || stdout {
 				json_data := protobufToJSON(&clickPb)
-				log.Println("json: ", json_data)
+				if stdout {
+					fmt.Println(json_data)
+				}  else if print_json {
+					log.Println("json: ", json_data)
+				}  	
 			}
 		}
 		log.Println("packets received: ", packets_received)
@@ -164,6 +177,8 @@ func main() {
 	// Makes it possible to use the token and print_json as cli parameters
 	parameter_json := flag.Bool("print_json", false, "enable print json")
 	parameter_token := flag.String("token", "", "insert your token")
+	parameter_stdout := flag.Bool("stdout", false, "print json to stdout instead of log")
+
 	flag.Parse()
 	if *parameter_token != "" {
 		token = *parameter_token
@@ -175,6 +190,11 @@ func main() {
 
 	if *parameter_json {
 		print_json = true
+	}
+
+	if *parameter_stdout {
+		log.SetOutput(ioutil.Discard)
+		stdout = true
 	}
 
 	notifyPoststationDisconnect()

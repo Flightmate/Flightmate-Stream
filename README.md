@@ -2,7 +2,7 @@
 
 This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
 
-The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `-print_json true/false`).
+The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `-print_json true`). You can also print exclusively JSON to stdout by using the flag -`-stdout true`.
 
 If you want to run by cloning the repo (`git clone https://github.com/Flightmate/Flightmate-Stream`):
 - Install Golang [here](https://go.dev/doc/install) 
