@@ -9,10 +9,6 @@ github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20220105101
 github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20220105101636-f53ff4a09e8c/go.mod h1:bZkOVX3x5a0LuJW3eEU1DO9Xe835W1MAIp3TD4/9MlI=
 github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20220105101636-f53ff4a09e8c h1:Nh/Z3RkIFFAaUBPRpO5eTvHCKs5oPnJBCPHR9TeApZ0=
 github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20220105101636-f53ff4a09e8c/go.mod h1:waCsmukeKewfv+JYCUcIHFVUrNIVusdqkS29iq/kovk=
-github.com/MazeofIth/another_click_packet v0.0.0-20211222113554-b8c2e633339f h1:6ion6OKKJ38Zd4l21NupGARrKAP8kylQG6WdHGgkXr4=
-github.com/MazeofIth/another_click_packet v0.0.0-20211222113554-b8c2e633339f/go.mod h1:nKMmZAhs203ekm0Qu3o/JdN1DEuCgF0LtR3Poya8Ndw=
-github.com/MazeofIth/another_search_packet v0.0.0-20211222112746-df12401c9981 h1:SOXcQAKumury5CCtVEBu/k6WlDMY42NgvckjGhvzT1o=
-github.com/MazeofIth/another_search_packet v0.0.0-20211222112746-df12401c9981/go.mod h1:dtzCjiNkOjafgK6pN90FBPUo12oxg9YCk9y6Q3Tkk4g=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/go-restruct/restruct v1.2.0-alpha h1:2Lp474S/9660+SJjpVxoKuWX09JsXHSrdV7Nv3/gkvc=
 github.com/go-restruct/restruct v1.2.0-alpha/go.mod h1:KqrpKpn4M8OLznErihXTGLlsXFGeLxHUrLRRI/1YjGk=
