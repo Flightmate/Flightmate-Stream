@@ -1,0 +1,29 @@
+{
+	"leaveDate": "2019-04-22",
+	"to": "NYC",
+	"searchIdentifier": "e2a7ddce4f8dfb4717cb9fa3c6f92d72",
+	"tripType": "1",
+	"from": "OSL",
+	"domain": "flyreiser.no",
+	"ticketType": "0",
+	"price": 6644,
+	"childrenAges": "",
+    "youthAges": "",
+	"isBaggageIncluded": true,
+	"homeDate": "2019-04-29",
+	"name": "<ota_name>",
+	"searchTimestamp": "1544520395",
+	"adults": "2",
+	"legs": [
+		{
+			"to": "NYC",
+			"from": "OSL",
+			"date": "2019-04-22"
+		},
+		{
+			"to": "OSL",
+			"from": "NYC",
+			"date": "2019-04-29"
+		}
+	]
+}
