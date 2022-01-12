@@ -41,7 +41,6 @@ func checkSum(checksum uint32, data []byte) bool {
 	if checksum == crc32.Checksum(data, crc32q) {
 		log.Println("checksum failed")
 	} else {
-		log.Println("checksum passed")
 		return true
 	}
 	return false
@@ -85,7 +84,7 @@ func StartClient() {
 
 	client_conn.Write(concat_header_byte)
 
-	data := make([]byte, 4096)
+	data := make([]byte, 8192)
 	length, err := client_conn.Read(data) // Writes onto data
 	if err != nil {
 		log.Println(err.Error())
@@ -109,10 +108,12 @@ func StartClient() {
 		if header.Message_Type == 1 {
 			searchPb := search_packet.Search_Packet{}
 
-			err := proto.Unmarshal(data[:length], &searchPb)
-			if err != nil {
+			proto.Unmarshal(data[:length], &searchPb)
+			// err := 
+			/*if err != nil && err.Error() != "proto: cannot parse invalid wire-format data" {
+				// reflect.TypeOf(err.Error())
 				log.Println(err.Error())
-			}
+			}*/
 
 			// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
 			log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
@@ -121,10 +122,11 @@ func StartClient() {
 		} else if header.Message_Type == 2 {
 			clickPb := click_packet.Click_Packet{}
 
-			err := proto.Unmarshal(data[:length], &clickPb)
-			if err != nil {
+			proto.Unmarshal(data[:length], &clickPb)
+			// err := 
+			/*if err != nil && err.Error() != "cannot parse invalid wire-format data" {
 				log.Println(err.Error())
-			}
+			}*/
 
 			// log.Printf("%+v\n", clickPb) // <-- Prints entire packet in Protobuf
 			log.Printf("Received a click packet from %s to %s from %s", clickPb.From, clickPb.To, clickPb.Domain)
