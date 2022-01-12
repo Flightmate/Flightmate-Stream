@@ -178,7 +178,7 @@ func main() {
 		token = *parameter_token
 	} else if len(token) != 128 {
 		log.Println(`You must insert your token for the client to be able to connect to the server. ` +
-			`Do this by running "go run client.go -token YOUR_TOKEN_HERE" or by directly editing "token = 'INSERT YOUR TOKEN HERE'"`)
+			`Specify with the argument --token YOUR_TOKEN_HERE" (or by directly editing "token = 'INSERT YOUR TOKEN HERE' if you have cloned the repo)"`)
 		os.Exit(3)
 	}
 

@@ -2,15 +2,23 @@
 
 This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
 
-The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `-print_json true`). You can also print exclusively JSON to stdout by using the flag -`-stdout true`.
+The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json true`). You can also print exclusively JSON to stdout by using the flag -`--stdout true`.
 
 If you want to run by cloning the repo (`git clone https://github.com/Flightmate/Flightmate-Stream`):
 - Install Golang [here](https://go.dev/doc/install) 
-- Run with `go run client.go -token YOUR_TOKEN_HERE` 
+- Run with `go run client.go --token YOUR_TOKEN_HERE` 
 - You can also edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
 
-If you use the downloaded binaries (64-bit [Windows](executables/clientWindows64), [Mac](executables/clientMac64), and [Linux](executables/clientLinux64)) (32-bit found under executables): 
-- Navigate to the file's location and run `./client -token YOUR_TOKEN_HERE` 
+If you use the downloaded binaries (found under [Releases](/releases/latest)): 
+- Navigate to the file's location and run `./client --token YOUR_TOKEN_HERE` 
+
+You can build the files yourself using: 
+- env GOOS=windows GOARCH=386 go build -o executables/clientWindows32.exe client.go
+- env GOOS=windows GOARCH=amd64 go build -o executables/clientWindows64.exe client.go
+- env GOOS=darwin GOARCH=386 go build -o executables/clientMac32 client.go
+- env GOOS=darwin GOARCH=amd64 go build -o executables/clientMac64 client.go
+- env GOOS=linux GOARCH=386 go build -o executables/clientLinux32 client.go
+- env GOOS=linux GOARCH=amd64 go build -o executables/clientLinux64 client.go
 
 ## **System description**
 
