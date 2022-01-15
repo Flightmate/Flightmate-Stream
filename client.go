@@ -11,13 +11,12 @@ import (
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"hash/crc32"
+	"io"
 	"io/ioutil"
 	"log"
 	"net"
 	"os"
-	"os/signal"
 	"runtime"
-	"syscall"
 	"time"
 )
 
@@ -48,7 +47,8 @@ func checkSum(checksum uint32, data []byte) bool {
 
 func printLogic(packet proto.Message) {
 	if print_json || stdout {
-		json_data := protobufToJSON(*&packet)
+		json_data := protobufToJSON(packet)
+
 		if stdout {
 			fmt.Println(json_data)
 		} else if print_json {
@@ -58,10 +58,9 @@ func printLogic(packet proto.Message) {
 }
 
 func StartClient() {
-
 	defer func() {
 		if err := recover(); err != nil {
-			log.Println("sendto: ", err)
+			log.Println(err)
 			client_connected = false
 			log.Println("retry connection")
 			time.Sleep(5 * time.Second)
@@ -69,72 +68,92 @@ func StartClient() {
 		}
 	}()
 
-	config := &tls.Config{ServerName: "ai-stream.flightmate.com"}
-
+	
 	if !client_connected {
 		// Connects to server
+		config := &tls.Config{ServerName: "ai-stream.flightmate.com"}
 		client_conn, _ = tls.Dial("tcp", "ai-stream.flightmate.com:444", config)
 		client_connected = true
 		log.Println("Connected to Poststation")
-	}
+		header_data := []byte{0, 0, 0, 0, 0, 0, 0, 0, 3}
+		byte_token := []byte(token)
+		concat_header_byte := append(header_data[:], byte_token[:]...)
 
-	header_data := []byte{0, 0, 0, 0, 0, 0, 0, 0, 3}
-	byte_token := []byte(token)
-	concat_header_byte := append(header_data[:], byte_token[:]...)
+		_, err := client_conn.Write(concat_header_byte)
 
-	client_conn.Write(concat_header_byte)
-
-	data := make([]byte, 8192)
-	length, err := client_conn.Read(data) // Writes onto data
-	if err != nil {
-		log.Println(err.Error())
-		client_connected = false
-		log.Println("retry connection")
-		time.Sleep(5 * time.Second)
-	} else if string(data[:17]) == "Invalid OTA token" {
-		log.Println("Invalid token")
-	}
-
-	header := Head{}
-	unpack_err := restruct.Unpack(data[:9], binary.BigEndian, &header)
-	if unpack_err != nil {
-		log.Println(unpack_err.Error())
-	}
-
-	data = data[9:]
-
-	if checkSum(header.Checksum, data) {
-		packets_received += 1
-		if header.Message_Type == 1 {
-			searchPb := search_packet.Search_Packet{}
-
-			proto.Unmarshal(data[:length], &searchPb)
-			// err := 
-			/*if err != nil && err.Error() != "proto: cannot parse invalid wire-format data" {
-				// reflect.TypeOf(err.Error())
-				log.Println(err.Error())
-			}*/
-
-			// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
-			log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
-
-			printLogic(&searchPb)
-		} else if header.Message_Type == 2 {
-			clickPb := click_packet.Click_Packet{}
-
-			proto.Unmarshal(data[:length], &clickPb)
-			// err := 
-			/*if err != nil && err.Error() != "cannot parse invalid wire-format data" {
-				log.Println(err.Error())
-			}*/
-
-			// log.Printf("%+v\n", clickPb) // <-- Prints entire packet in Protobuf
-			log.Printf("Received a click packet from %s to %s from %s", clickPb.From, clickPb.To, clickPb.Domain)
-
-			printLogic(&clickPb)
+		if err != nil {
+			log.Println(err.Error())
 		}
 	}
-	// log.Println("packets received: ", packets_received)
+
+	if client_connected {
+		size_of_bytes := make([]byte, 8)
+		_, err := io.ReadFull(client_conn, size_of_bytes)
+
+		if err != nil {
+			log.Println(err.Error())
+		} 
+
+		size_of_proto := int64(binary.LittleEndian.Uint64(size_of_bytes[:8]))
+
+		// if size_of_proto == 100000 {
+		// 	log.Println("Invalid token")
+		// } 
+
+		data := make([]byte, size_of_proto+9)   // Add 9 because of length of header
+		_, err = io.ReadFull(client_conn, data) // Writes onto data
+
+		if err != nil {
+			log.Println(err.Error())
+			client_connected = false
+			log.Println("retry connection")
+			time.Sleep(5 * time.Second)
+		} else {
+			// log.Println(data)
+			// log.Println(string(data))
+		}/*if string(data[:7]) == "Invalid" {
+			log.Println("Invalid token")
+		}*/
+
+		header := Head{}
+		unpack_err := restruct.Unpack(data[:9], binary.BigEndian, &header)
+
+		if unpack_err != nil {
+			log.Println(unpack_err.Error())
+		}
+
+		data = data[9:]
+
+		if checkSum(header.Checksum, data) {
+			packets_received += 1
+			if header.Message_Type == 1 {
+				searchPb := search_packet.Search_Packet{}
+
+				err := proto.Unmarshal(data, &searchPb)
+				if err != nil  {
+					log.Println(err.Error())
+				}
+
+				// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
+				log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
+
+				printLogic(&searchPb)
+			} else if header.Message_Type == 2 {
+				clickPb := click_packet.Click_Packet{}
+
+				err := proto.Unmarshal(data, &clickPb)
+				if err != nil {
+					log.Println(err.Error())
+				}
+
+				// log.Printf("%+v\n", clickPb) // <-- Prints entire packet in Protobuf
+				log.Printf("Received a click packet from %s to %s from %s", clickPb.From, clickPb.To, clickPb.Domain)
+
+				printLogic(&clickPb)
+			}
+		}
+		// log.Println("packets received: ", packets_received)
+	}
 
 	go func() {
 		StartClient()
@@ -144,38 +163,20 @@ func StartClient() {
 	runtime.Goexit()
 }
 
-func notifyPoststationDisconnect() {
-	done := make(chan os.Signal, 1)
-	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
-
-	go func() {
-		select {
-		case sig := <-done:
-			log.Printf("Got %s signal. Aborting...\n", sig)
-			client_conn.Write([]byte{0, 0, 0, 0, 0, 0, 0, 0, 5})
-			os.Exit(1)
-		}
-	}()
-}
-
 func protobufToJSON(proto_message proto.Message) string {
 	m := jsonpb.Marshaler{}
 	json, _ := m.MarshalToString(proto_message)
 	return json
 }
 
-func main() {
-	// Prints line number when logging
-	log.SetFlags(log.LstdFlags | log.Lshortfile)
-
-	token = "INSERT YOUR TOKEN HERE"
-
-	// Makes it possible to use the token and print_json as cli parameters
+func parameterFunc() {
+	// Makes it possible to use the token, print_json, and stdout as arguments
 	parameter_json := flag.Bool("print_json", false, "enable print json")
 	parameter_token := flag.String("token", "", "insert your token")
 	parameter_stdout := flag.Bool("stdout", false, "print json to stdout instead of log")
 
 	flag.Parse()
+
 	if *parameter_token != "" {
 		token = *parameter_token
 	} else if len(token) != 128 {
@@ -192,8 +193,15 @@ func main() {
 		log.SetOutput(ioutil.Discard)
 		stdout = true
 	}
+}
 
-	notifyPoststationDisconnect()
+func main() {
+	// Prints line number when logging
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+
+	token = "INSERT YOUR TOKEN HERE"
+
+	parameterFunc()
 
 	log.Println("Starting OTA tls client")
 	StartClient()
