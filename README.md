@@ -10,15 +10,15 @@ If you want to run by cloning the repo (`git clone https://github.com/Flightmate
 - You can also edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
 
 If you use the downloaded binaries (found under [Releases](/releases/latest)): 
-- Navigate to the file's location and run `./client --token YOUR_TOKEN_HERE` 
+- Navigate to the file's location and run `./filename --token YOUR_TOKEN_HERE` 
 
 You can build the files yourself using: 
-- env GOOS=windows GOARCH=386 go build -o executables/clientWindows32.exe client.go
-- env GOOS=windows GOARCH=amd64 go build -o executables/clientWindows64.exe client.go
-- env GOOS=darwin GOARCH=386 go build -o executables/clientMac32 client.go
-- env GOOS=darwin GOARCH=amd64 go build -o executables/clientMac64 client.go
-- env GOOS=linux GOARCH=386 go build -o executables/clientLinux32 client.go
-- env GOOS=linux GOARCH=amd64 go build -o executables/clientLinux64 client.go
+env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
+env GOOS=windows  GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go
+env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go
+env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go
+env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go
+env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go
 
 ## **System description**
 
@@ -51,6 +51,8 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
 ![image alt text](https://lh4.googleusercontent.com/bCJEILOU0trwFdwSvAqn_V4hN89RLQ1CE98mjhAiC5ioDwMFV79fBAh46tpI64qBztEikxuiYXilRH3B-NSY1Q5udEheopR99_PVdRZ1jDNo9nPCF-iBM-ojFscPajCxFpKfjwkO)
 
 ## **Packet information shorthand**
+
+Now there's also an 8-byte little-endian pre-header which sends the packet size in bytes in order for TCP to read the appropriate amount.
 
 <table>
   <tr>

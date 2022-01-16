@@ -5,11 +5,6 @@ import (
 	"encoding/binary"
 	"flag"
 	"fmt"
-	"github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet"
-	"github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet"
-	"github.com/go-restruct/restruct"
-	"github.com/golang/protobuf/jsonpb"
-	"github.com/golang/protobuf/proto"
 	"hash/crc32"
 	"io"
 	"io/ioutil"
@@ -18,6 +13,11 @@ import (
 	"os"
 	"runtime"
 	"time"
+	"github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet"
+	"github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet"
+	"github.com/go-restruct/restruct"
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
 )
 
 var client_conn net.Conn
@@ -26,7 +26,7 @@ var packets_received = 0
 
 // Parameters
 var print_json = false
-var token string
+var token = "INSERT YOUR TOKEN HERE"
 var stdout = false
 
 type Head struct {
@@ -68,7 +68,6 @@ func StartClient() {
 		}
 	}()
 
-	
 	if !client_connected {
 		// Connects to server
 		config := &tls.Config{ServerName: "ai-stream.flightmate.com"}
@@ -92,13 +91,14 @@ func StartClient() {
 
 		if err != nil {
 			log.Println(err.Error())
-		} 
+		}
 
 		size_of_proto := int64(binary.LittleEndian.Uint64(size_of_bytes[:8]))
 
-		// if size_of_proto == 100000 {
-		// 	log.Println("Invalid token")
-		// } 
+		if string(size_of_bytes) == "invalid!" {
+			log.Println("Invalid token")
+			os.Exit(3)
+		}
 
 		data := make([]byte, size_of_proto+9)   // Add 9 because of length of header
 		_, err = io.ReadFull(client_conn, data) // Writes onto data
@@ -108,12 +108,7 @@ func StartClient() {
 			client_connected = false
 			log.Println("retry connection")
 			time.Sleep(5 * time.Second)
-		} else {
-			// log.Println(data)
-			// log.Println(string(data))
-		}/*if string(data[:7]) == "Invalid" {
-			log.Println("Invalid token")
-		}*/
+		}
 
 		header := Head{}
 		unpack_err := restruct.Unpack(data[:9], binary.BigEndian, &header)
@@ -130,7 +125,7 @@ func StartClient() {
 				searchPb := search_packet.Search_Packet{}
 
 				err := proto.Unmarshal(data, &searchPb)
-				if err != nil  {
+				if err != nil {
 					log.Println(err.Error())
 				}
 
@@ -181,7 +176,7 @@ func parameterFunc() {
 		token = *parameter_token
 	} else if len(token) != 128 {
 		log.Println(`You must insert your token for the client to be able to connect to the server. ` +
-			`Specify with the argument --token YOUR_TOKEN_HERE" (or by directly editing "token = 'INSERT YOUR TOKEN HERE' if you have cloned the repo)"`)
+			`Specify with the argument --token YOUR_TOKEN_HERE (or by directly editing 'token = "INSERT YOUR TOKEN HERE"' if you have cloned the repo)"`)
 		os.Exit(3)
 	}
 
@@ -198,8 +193,6 @@ func parameterFunc() {
 func main() {
 	// Prints line number when logging
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
-
-	token = "INSERT YOUR TOKEN HERE"
 
 	parameterFunc()
 
