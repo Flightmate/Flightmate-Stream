@@ -4,7 +4,7 @@ This version of the AI-stream is rewritten from Python to Golang to be able to h
 
 The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json true`). You can also print exclusively JSON to stdout by using the flag `--stdout true`.
 
-If you want to run by cloning the repo (`git clone https://github.com/Flightmate/Flightmate-Stream`):
+If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --single-branch https://github.com/Flightmate/Flightmate-Stream/`):
 - Install Golang [here](https://go.dev/doc/install) 
 - Run with `go run client.go --token YOUR_TOKEN_HERE` 
 - You can also edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
@@ -15,12 +15,12 @@ If you use the downloaded binaries (found under [Releases](/releases/latest)):
 - Run `./filename --token YOUR_TOKEN_HERE` 
 
 You can build the files yourself using: 
-env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
-env GOOS=windows  GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go
-env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go
-env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go
-env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go
-env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go
+- env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
+- env GOOS=windows  GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go
+- env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go
+- env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go
+- env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go
+- env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go
 
 ## **System description**
 
