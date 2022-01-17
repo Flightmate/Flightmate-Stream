@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"crypto/tls"
 	"encoding/binary"
 	"flag"
@@ -12,12 +13,13 @@ import (
 	"net"
 	"os"
 	"runtime"
+	"strconv"
 	"time"
+
 	"github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet"
 	"github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet"
-	"github.com/go-restruct/restruct"
-	"github.com/golang/protobuf/jsonpb"
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/proto"
 )
 
 var client_conn net.Conn
@@ -25,11 +27,14 @@ var client_connected = false
 var packets_received = 0
 
 // Parameters
+var token string
 var print_json = false
-var token = "INSERT YOUR TOKEN HERE"
 var stdout = false
 
-type Head struct {
+var parameter_host *string
+var parameter_port *int
+
+type Header struct {
 	Checksum     uint32 //  0:4
 	Body_Size    uint32 //  4:8
 	Message_Type int8   //  9
@@ -68,12 +73,19 @@ func StartClient() {
 		}
 	}()
 
+	config := &tls.Config{ServerName: *parameter_host}
+
 	if !client_connected {
+		var target = *parameter_host + ":" + strconv.Itoa(*parameter_port)
+		log.Printf("Connecting to Poststation %s", target)
+
 		// Connects to server
-		config := &tls.Config{ServerName: "ai-stream.flightmate.com"}
-		client_conn, _ = tls.Dial("tcp", "ai-stream.flightmate.com:444", config)
+		config := config
+		client_conn, _ = tls.Dial("tcp", target, config)
 		client_connected = true
+
 		log.Println("Connected to Poststation")
+
 		header_data := []byte{0, 0, 0, 0, 0, 0, 0, 0, 3}
 		byte_token := []byte(token)
 		concat_header_byte := append(header_data[:], byte_token[:]...)
@@ -110,26 +122,27 @@ func StartClient() {
 			time.Sleep(5 * time.Second)
 		}
 
-		header := Head{}
-		unpack_err := restruct.Unpack(data[:9], binary.BigEndian, &header)
+		header := Header{}
+		buf := bytes.NewBuffer(data)
 
-		if unpack_err != nil {
-			log.Println(unpack_err.Error())
+		if err = binary.Read(buf, binary.BigEndian, &header); err != nil {
+			log.Println(err.Error())
 		}
 
 		data = data[9:]
 
 		if checkSum(header.Checksum, data) {
 			packets_received += 1
+
 			if header.Message_Type == 1 {
 				searchPb := search_packet.Search_Packet{}
 
 				err := proto.Unmarshal(data, &searchPb)
+
 				if err != nil {
 					log.Println(err.Error())
 				}
 
-				// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
 				log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
 
 				printLogic(&searchPb)
@@ -137,6 +150,7 @@ func StartClient() {
 				clickPb := click_packet.Click_Packet{}
 
 				err := proto.Unmarshal(data, &clickPb)
+
 				if err != nil {
 					log.Println(err.Error())
 				}
@@ -159,25 +173,32 @@ func StartClient() {
 }
 
 func protobufToJSON(proto_message proto.Message) string {
-	m := jsonpb.Marshaler{}
-	json, _ := m.MarshalToString(proto_message)
-	return json
+	json, err := protojson.Marshal(proto_message)
+
+	if err != nil {
+		log.Println(err.Error())
+	}
+
+	return string(json)
 }
 
 func parameterFunc() {
 	// Makes it possible to use the token, print_json, and stdout as arguments
-	parameter_json := flag.Bool("print_json", false, "enable print json")
-	parameter_token := flag.String("token", "", "insert your token")
-	parameter_stdout := flag.Bool("stdout", false, "print json to stdout instead of log")
+	parameter_json := flag.Bool("print_json", false, "log responses as json")
+	parameter_stdout := flag.Bool("stdout", false, "disable logging, only print json responses")
+
+	parameter_token := flag.String("token", "", "insert your token 128 alphanumerical chars")
+
+	parameter_host = flag.String("host", "ai-stream.flightmate.com", "target host you wish to connect to")
+	parameter_port = flag.Int("port", 444, "host target port")
 
 	flag.Parse()
 
 	if *parameter_token != "" {
 		token = *parameter_token
 	} else if len(token) != 128 {
-		log.Println(`You must insert your token for the client to be able to connect to the server. ` +
-			`Specify with the argument --token YOUR_TOKEN_HERE (or by directly editing 'token = "INSERT YOUR TOKEN HERE"' if you have cloned the repo)"`)
-		os.Exit(3)
+		flag.PrintDefaults()
+		log.Fatal("Missing required token!")
 	}
 
 	if *parameter_json {
