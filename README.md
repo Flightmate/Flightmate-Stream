@@ -54,8 +54,6 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
 
 ## **Packet information shorthand**
 
-Now there's also an 8-byte little-endian pre-header which sends the packet size in bytes in order for TCP to read the appropriate amount.
-
 <table>
   <tr>
     <td>Byte order</td>
@@ -76,6 +74,10 @@ Now there's also an 8-byte little-endian pre-header which sends the packet size 
   <tr>
     <td>Header content</td>
     <td>[Checksum, body size, packet type]</td>
+  </tr>
+    <tr>
+    <td>Body size</td>
+    <td>Byte length of protobuf</td>
   </tr>
   <tr>
     <td>Packet type 1</td>
