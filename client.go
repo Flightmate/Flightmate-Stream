@@ -103,7 +103,7 @@ func StartClient() {
 			time.Sleep(5 * time.Second)
 		}
 
-		if string(data) == "isinvalid!" {
+		if string(data) == "isinvalid" {
 			log.Println("Invalid token")
 			os.Exit(3)
 		}

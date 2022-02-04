@@ -15,12 +15,12 @@ If you use the downloaded binaries (found under [Releases](/releases/latest)). (
 - Run `./filename --token YOUR_TOKEN_HERE` 
 
 You can build the files yourself using: 
-- env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
-- env GOOS=windows  GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go
-- env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go
-- env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go
-- env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go
-- env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go
+env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
+env GOOS=windows  GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go
+env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go
+env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go
+env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go
+env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go
 
 ## **System description**
 
@@ -77,7 +77,7 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
   </tr>
     <tr>
     <td>Body size</td>
-    <td>Byte length of protobuf</td>
+    <td>Byte length of Protobuf</td>
   </tr>
   <tr>
     <td>Packet type 1</td>
