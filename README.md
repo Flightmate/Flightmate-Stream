@@ -7,7 +7,7 @@ The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for
 If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --single-branch https://github.com/Flightmate/Flightmate-Stream/`):
 - Install Golang [here](https://go.dev/doc/install) 
 - Run with `go run client.go --token YOUR_TOKEN_HERE` 
-- You can also edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
+- You can also fwe edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
 
 If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning (this will be fixed in later versions)): 
 - Navigate to the file's location
@@ -96,7 +96,7 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
 
 ## **Authentication packets**
 
-To access the data stream an authentication is required. This will allow you access to the datastream and unmask the OTA signatures your allowed to see. If an authentication packet is malformed or does not match the server will drop the client. The authentication packet is a character sequence at a size of exactly 128 bytes and does not end in a null/newline byte. It's supplied by Flightmate to the OTA. Please contact Valdemar at valle@flygresor.se for this. We will also need your IP from your requesting server for our firewall whitelist.
+To access the data stream an authentication is required. This will allow you access to the datastream and unmask the OTA signatures your allowed to see. If an authentication packet is malformed or does not match the server will drop the client. The authentication packet is a character sequence at a size of exactly 128 bytes and is supplied by Flightmate to the OTA. Please contact Valdemar at valle@flygresor.se for this.
 
 ## **"Continuous stream of data packets" breakdown**
 
