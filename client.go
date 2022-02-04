@@ -43,10 +43,10 @@ type Header struct {
 func checkSum(checksum uint32, data []byte) bool {
 	crc32q := crc32.MakeTable(0xD5828281)
 	if checksum == crc32.Checksum(data, crc32q) {
-		log.Println("checksum failed")
-	} else {
-		return true
-	}
+		log.Println("checksum succeeded")
+		return true 
+	} 
+	log.Println("checksum failed")
 	return false
 }
 
@@ -98,28 +98,28 @@ func StartClient() {
 	}
 
 	if client_connected {
-		size_of_bytes := make([]byte, 8)
-		_, err := io.ReadFull(client_conn, size_of_bytes)
+		// size_of_bytes := make([]byte, 8)
+		// _, err := io.ReadFull(client_conn, size_of_bytes)
 
-		if err != nil {
-			log.Println(err.Error())
-		}
+		// if err != nil {
+		// 	log.Println(err.Error())
+		// }
 
-		size_of_proto := int64(binary.LittleEndian.Uint64(size_of_bytes[:8]))
+		// size_of_proto := int64(binary.LittleEndian.Uint64(size_of_bytes[:8]))
 
-		if string(size_of_bytes) == "invalid!" {
-			log.Println("Invalid token")
-			os.Exit(3)
-		}
-
-		data := make([]byte, size_of_proto+9)   // Add 9 because of length of header
-		_, err = io.ReadFull(client_conn, data) // Writes onto data
+		data := make([]byte, 9)   // Add 9 because of length of header
+		_, err := io.ReadFull(client_conn, data) // Writes onto data
 
 		if err != nil {
 			log.Println(err.Error())
 			client_connected = false
 			log.Println("retry connection")
 			time.Sleep(5 * time.Second)
+		}
+
+		if string(data) == "isinvalid!" {
+			log.Println("Invalid token")
+			os.Exit(3)
 		}
 
 		header := Header{}
@@ -129,7 +129,14 @@ func StartClient() {
 			log.Println(err.Error())
 		}
 
-		data = data[9:]
+		data = make([]byte, header.Body_Size)  
+		_, err = io.ReadFull(client_conn, data) // Writes onto data
+
+		if err != nil {
+			log.Println(err.Error())
+		}
+
+		// data = data[9:]
 
 		if checkSum(header.Checksum, data) {
 			packets_received += 1
