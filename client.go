@@ -32,7 +32,7 @@ var print_json = false
 var stdout = false
 
 var parameter_host *string
-var parameter_port *int
+var port int
 
 type Header struct {
 	Checksum     uint32 //  0:4
@@ -71,7 +71,7 @@ func StartClient() {
 	config := &tls.Config{ServerName: *parameter_host}
 
 	if !client_connected {
-		var target = *parameter_host + ":" + strconv.Itoa(*parameter_port)
+		var target = *parameter_host + ":" + strconv.Itoa(port)
 		log.Printf("Connecting to Poststation %s", target)
 
 		// Connects to server
@@ -175,13 +175,15 @@ func protobufToJSON(proto_message proto.Message) string {
 
 func parameterFunc() {
 	// Makes it possible to use the token, print_json, and stdout as arguments
+	// the syntax -flag x is allowed for non-boolean flags only, booleans must have = 
 	parameter_json := flag.Bool("print_json", false, "log responses as json")
 	parameter_stdout := flag.Bool("stdout", false, "disable logging, only print json responses")
 
 	parameter_token := flag.String("token", "", "insert your token 128 alphanumerical chars")
 
 	parameter_host = flag.String("host", "ai-stream.flightmate.com", "target host you wish to connect to")
-	parameter_port = flag.Int("port", 444, "host target port")
+	parameter_port := flag.Int("port", 444, "host target port")
+
 
 	flag.Parse()
 
@@ -199,6 +201,11 @@ func parameterFunc() {
 	if *parameter_stdout {
 		log.SetOutput(ioutil.Discard)
 		stdout = true
+	}
+
+	log.Println("port: ", *parameter_port)
+	if *parameter_port != 0 {
+		port = *parameter_port
 	}
 }
 

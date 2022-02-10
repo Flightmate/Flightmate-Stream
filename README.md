@@ -2,17 +2,17 @@
 
 This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
 
-The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json true`). You can also print exclusively JSON to stdout by using the flag `--stdout true`.
+The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. We have also upgraded to using TLS instead of SSL. 
 
 If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --single-branch https://github.com/Flightmate/Flightmate-Stream/`):
 - Install Golang [here](https://go.dev/doc/install) 
-- Run with `go run client.go --token YOUR_TOKEN_HERE` 
+- Run with `go run client.go --token=YOUR_TOKEN_HERE` 
 - You can also fwe edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
 
 If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning (this will be fixed in later versions)): 
 - Navigate to the file's location
 - You might have to run chmod +x [filename] to change permissions 
-- Run `./filename --token YOUR_TOKEN_HERE` 
+- Run `./filename --token=YOUR_TOKEN_HERE` 
 
 You can build the files yourself using: 
 - env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
