@@ -11,7 +11,7 @@ If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --s
 - Run with `go run client.go --token=YOUR_TOKEN_HERE` 
 - You can also edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
 
-If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning, because we haven't bought an app certificate yet. This will be fixed in later versions)): 
+If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning, because we haven't bought an app certificate yet. This will be fixed in later versions): 
 - Navigate to the file's location
 - You might have to run chmod +x [filename] to change permissions 
 - Run `./filename --token=YOUR_TOKEN_HERE` 
