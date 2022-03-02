@@ -2,14 +2,16 @@
 
 This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
 
-The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. We have also upgraded to using TLS instead of SSL. 
+The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. 
+
+We have also upgraded to using TLS instead of SSL. 
 
 If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --single-branch https://github.com/Flightmate/Flightmate-Stream/`):
 - Install Golang [here](https://go.dev/doc/install) 
 - Run with `go run client.go --token=YOUR_TOKEN_HERE` 
-- You can also fwe edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
+- You can also edit `token = "INSERT YOUR TOKEN HERE` directly in client.go 
 
-If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning (this will be fixed in later versions)): 
+If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning, because we haven't bought an app certificate yet. This will be fixed in later versions)): 
 - Navigate to the file's location
 - You might have to run chmod +x [filename] to change permissions 
 - Run `./filename --token=YOUR_TOKEN_HERE` 
@@ -91,6 +93,10 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
     <td>Packet type 3</td>
     <td>Authentication package containing OTAs 128B long token.</td>
   </tr>
+    <tr>
+    <td>Packet type 6</td>
+    <td>Authentication package requesting JSON data containing OTA's 128B long token.</td>
+  </tr>
 </table>
 
 
@@ -148,7 +154,7 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 ### Search packet:
 
-The search packets are sent each time a user display a search result(this includes users opening results from top-list and last minute) and contains the following data:
+The search packets are sent each time a user display a search result(this includes users opening results from top-list and last minute). They contain the following data:
 
 **to:** The IATA code of the airport the flight is arriving to.
 
@@ -172,7 +178,7 @@ The search packets are sent each time a user display a search result(this includ
 
 **adults:** The number of adults specified in the search.
 
-**flights:** A list of the flights shown to the user. Each item in the list contains:
+**flights:** A list of the flights shown to the user. Note that this field can be empty if no search results were found. Each item in the list contains:
 
 * **searchIdentifier:** The identifying hash used to tie out clicks to this particular flight.
 

@@ -42,7 +42,7 @@ type Header struct {
 
 func checkSum(checksum uint32, data []byte) bool {
 	crc32q := crc32.MakeTable(0xD5828281)
-	return checksum == crc32.Checksum(data, crc32q) 
+	return checksum == crc32.Checksum(data, crc32q)
 }
 
 func printLogic(packet proto.Message) {
@@ -93,7 +93,7 @@ func StartClient() {
 	}
 
 	if client_connected {
-		data := make([]byte, 9)   // Add 9 because of length of header
+		data := make([]byte, 9)                  // Add 9 because of length of header
 		_, err := io.ReadFull(client_conn, data) // Writes onto data
 
 		if err != nil {
@@ -115,7 +115,7 @@ func StartClient() {
 			log.Println(err.Error())
 		}
 
-		data = make([]byte, header.Body_Size)  
+		data = make([]byte, header.Body_Size)
 		_, err = io.ReadFull(client_conn, data) // Writes onto data
 
 		if err != nil {
@@ -175,7 +175,7 @@ func protobufToJSON(proto_message proto.Message) string {
 
 func parameterFunc() {
 	// Makes it possible to use the token, print_json, and stdout as arguments
-	// the syntax -flag x is allowed for non-boolean flags only, booleans must have = 
+	// the syntax -flag x is allowed for non-boolean flags only, booleans must have =
 	parameter_json := flag.Bool("print_json", false, "log responses as json")
 	parameter_stdout := flag.Bool("stdout", false, "disable logging, only print json responses")
 
@@ -183,7 +183,6 @@ func parameterFunc() {
 
 	parameter_host = flag.String("host", "ai-stream.flightmate.com", "target host you wish to connect to")
 	parameter_port := flag.Int("port", 444, "host target port")
-
 
 	flag.Parse()
 
