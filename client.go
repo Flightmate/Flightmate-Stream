@@ -6,6 +6,10 @@ import (
 	"encoding/binary"
 	"flag"
 	"fmt"
+	"github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet"
+	"github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet"
+	"google.golang.org/protobuf/encoding/protojson"
+	"google.golang.org/protobuf/proto"
 	"hash/crc32"
 	"io"
 	"io/ioutil"
@@ -15,11 +19,8 @@ import (
 	"runtime"
 	"strconv"
 	"time"
-
-	"github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet"
-	"github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet"
-	"google.golang.org/protobuf/encoding/protojson"
-	"google.golang.org/protobuf/proto"
+	"os/signal"
+	"syscall"
 )
 
 var client_conn net.Conn
@@ -33,6 +34,8 @@ var stdout = false
 
 var parameter_host *string
 var port int
+
+var time_last_packet = time.Now()
 
 type Header struct {
 	Checksum     uint32 //  0:4
@@ -57,14 +60,14 @@ func printLogic(packet proto.Message) {
 	}
 }
 
-func StartClient() {
+func startClient() {	
 	defer func() {
 		if err := recover(); err != nil {
 			log.Println(err)
 			client_connected = false
 			log.Println("retry connection")
 			time.Sleep(5 * time.Second)
-			StartClient()
+			startClient()
 		}
 	}()
 
@@ -95,6 +98,7 @@ func StartClient() {
 	if client_connected {
 		data := make([]byte, 9)                  // Add 9 because of length of header
 		_, err := io.ReadFull(client_conn, data) // Writes onto data
+		log.Println("in client connected")
 
 		if err != nil {
 			log.Println(err.Error())
@@ -115,7 +119,7 @@ func StartClient() {
 			log.Println(err.Error())
 		}
 
-		data = make([]byte, header.Body_Size)
+		data = make([]byte, header.Body_Size) 
 		_, err = io.ReadFull(client_conn, data) // Writes onto data
 
 		if err != nil {
@@ -124,6 +128,8 @@ func StartClient() {
 
 		if checkSum(header.Checksum, data) {
 			packets_received += 1
+
+			time_last_packet = time.Now()
 
 			if header.Message_Type == 1 {
 				searchPb := search_packet.Search_Packet{}
@@ -156,10 +162,10 @@ func StartClient() {
 	}
 
 	go func() {
-		StartClient()
+		startClient()
 	}()
 
-	// Prevents main (or startclient) from returning
+	// Prevents main (or startClient) from returning
 	runtime.Goexit()
 }
 
@@ -214,6 +220,16 @@ func main() {
 
 	parameterFunc()
 
-	log.Println("Starting OTA tls client")
-	StartClient()
+	// Graceful exit, close connection 
+	done := make(chan os.Signal)
+	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+	go func() {
+		select {
+		case sig := <-done:
+			log.Println("Closing connection...: ", sig)
+			os.Exit(0)
+		}
+	}()
+
+	startClient()
 }
