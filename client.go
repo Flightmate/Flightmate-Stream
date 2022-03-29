@@ -98,7 +98,6 @@ func startClient() {
 	if client_connected {
 		data := make([]byte, 9)                  // Add 9 because of length of header
 		_, err := io.ReadFull(client_conn, data) // Writes onto data
-		log.Println("in client connected")
 
 		if err != nil {
 			log.Println(err.Error())
