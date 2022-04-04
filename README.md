@@ -114,7 +114,7 @@ The checksum is made from the whole packet so to verify it you need to first unp
 
 [(int) body size (4 bytes), (int) packet type (1 byte)]
 
-Then you can verify the package with the checksum using the crc32 algorithm.
+Then you can verify the package with the checksum using the crc32 algorithm. We use Golang's unsigned checksums with the aviation polynomial `0xD5828281`. 
 
 There are two types of packet you can receive from the stream. Packet type 1 contains search results showed to the user, and packet type 2 contains information about when a user clicks out on a trip and gets transferred to a OTA. 
 
