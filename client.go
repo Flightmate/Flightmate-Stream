@@ -139,6 +139,7 @@ func startClient() {
 					log.Println(err.Error())
 				}
 
+				// log.Printf("%+v\n", searchPb) // <-- Prints entire packet in Protobuf
 				log.Printf("Received a search packet from %s to %s from %s", searchPb.From, searchPb.To, searchPb.Domain)
 
 				printLogic(&searchPb)
