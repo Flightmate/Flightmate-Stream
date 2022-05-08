@@ -170,7 +170,11 @@ func startClient() {
 }
 
 func protobufToJSON(proto_message proto.Message) string {
-	json, err := protojson.Marshal(proto_message)
+	m := protojson.MarshalOptions{
+		EmitUnpopulated: true,
+	}
+
+	json, err := m.Marshal(proto_message)
 
 	if err != nil {
 		log.Println(err.Error())
