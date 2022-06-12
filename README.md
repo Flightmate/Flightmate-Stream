@@ -96,7 +96,6 @@ To access the data stream an authentication is required. This will allow you acc
     <td>Packet type 3</td>
     <td>Authentication package with the OTA's 128 byte token requesting Protobuf</td>
   </tr>
-    <
     <td>Packet type 6</td>
     <td>Authentication package with the OTA's 128 byte token requesting JSON data</td>
   </tr>
