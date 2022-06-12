@@ -1,10 +1,14 @@
 # **Flightmate AI-Stream Documentation**
 
+## **Changes**
+
 This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
 
 The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. 
 
-We have also upgraded to using TLS instead of SSL. 
+We have also upgraded to using TLS instead of SSL, and (at least temporarily) use port 444 instead of 443. 
+
+## **Installation instructions**
 
 If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --single-branch https://github.com/Flightmate/Flightmate-Stream/`):
 - Install Golang [here](https://go.dev/doc/install) 
@@ -26,7 +30,11 @@ You can build the files yourself using:
 
 ## **System description**
 
-Flightmate AI-Stream is a stream of data containing all results displayed to the users in the result list, at flygresor.se. Results are replicated in real-time by the server and available to Flygresor.se clients. The stream can be tapped into and the data can be stored in the customer's AI or BI systems to analyse the results and use it to improve content or pricing in their API responses to flygresor.se. The customer's results will be identified with a customer name code and the other customer's names will be anonymised in the stream.
+Flightmate AI-Stream is a stream of data containing all results displayed to the users in the result list at flygresor.se. The stream can be tapped into and the data can be stored in the customer's AI or BI systems to analyse the results and use it to improve content or pricing in their API responses to flygresor.se. The customer's results will be identified with a customer name code and the other customer's names will be anonymized in the stream.
+
+To access the data stream an authentication is required. This will allow you access to the datastream and unmask the OTA signatures your allowed to see. If an authentication packet is malformed or does not match the server will drop the client. The authentication packet is a character sequence of 128 bytes and is supplied by Flightmate to the OTA. Please contact Valdemar at valle@flygresor.se for this.
+
+![image alt text](continuous.png)
 
 ## **Server information**
 
@@ -49,11 +57,6 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
   </tr>
 </table>
 
-
-## **Visualization of client/server communication from start to stream**
-
-![image alt text](https://lh4.googleusercontent.com/bCJEILOU0trwFdwSvAqn_V4hN89RLQ1CE98mjhAiC5ioDwMFV79fBAh46tpI64qBztEikxuiYXilRH3B-NSY1Q5udEheopR99_PVdRZ1jDNo9nPCF-iBM-ojFscPajCxFpKfjwkO)
-
 ## **Packet information shorthand**
 
 <table>
@@ -71,7 +74,7 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
   </tr>
   <tr>
     <td>Header types</td>
-    <td>[Unsigned long (4B), unsigned long (4B), unsigned char(1B)]</td>
+    <td>[Unsigned long (4 bytes), unsigned long (4 bytes), unsigned char(1 byte)]</td>
   </tr>
   <tr>
     <td>Header content</td>
@@ -91,20 +94,16 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
   </tr>
   <tr>
     <td>Packet type 3</td>
-    <td>Authentication package containing OTAs 128B long token.</td>
+    <td>Authentication package with the OTA's 128 byte token requesting Protobuf</td>
   </tr>
-    <tr>
+    <
     <td>Packet type 6</td>
-    <td>Authentication package requesting JSON data containing OTA's 128B long token.</td>
+    <td>Authentication package with the OTA's 128 byte token requesting JSON data</td>
   </tr>
 </table>
 
 
-## **Authentication packets**
-
-To access the data stream an authentication is required. This will allow you access to the datastream and unmask the OTA signatures your allowed to see. If an authentication packet is malformed or does not match the server will drop the client. The authentication packet is a character sequence of 128 bytes and is supplied by Flightmate to the OTA. Please contact Valdemar at valle@flygresor.se for this.
-
-## **"Continuous stream of data packets" breakdown**
+## **Continuous stream of data packets**
 
 The first 9 bytes of each package contains the package header. This header contains information the length of the package body, the package type and a checksum to verify the package’s integrity. It’s constructed like this: 
 
@@ -116,11 +115,11 @@ The checksum is made from the whole packet so to verify it you need to first unp
 
 Then you can verify the package with the checksum using the crc32 algorithm. We use Golang's unsigned checksums with the aviation polynomial `0xD5828281`. 
 
-There are two types of packet you can receive from the stream. Packet type 1 contains search results showed to the user, and packet type 2 contains information about when a user clicks out on a trip and gets transferred to a OTA. 
+There are two types of packets you can receive from the stream. Packet type 1 contains search results showed to the user, and packet type 2 contains information about when a user clicks out on a trip and gets transferred to a OTA. 
 
 ### Click packet:
 
-The click packet is sent out each time a user clicks out from one of the sites and it contains the following data:
+The click packet is sent out each time a user clicks out from one of the sites and contains the following data:
 
 **price:** The price of the flight the user clicked on.
 
@@ -134,9 +133,9 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 **legs:** A json list of all searched trip legs. Each leg is a json object that include the following fields:
 
-* **From**: An iata code. Example "ARN".
+* **From**: An IATA code. Example "ARN".
 
-* **To**: An iata code.
+* **To**: An IATA code.
 
 * **Date**: The leave date specified by the user. Example 2018-12-30
 
@@ -154,7 +153,7 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 ### Search packet:
 
-The search packets are sent each time a user display a search result(this includes users opening results from top-list and last minute). They contain the following data:
+The search packets are sent each time a user display a search result (this includes users opening results from top-list and last minute). They contain the following data:
 
 **to:** The IATA code of the airport the flight is arriving to.
 
@@ -190,12 +189,23 @@ The search packets are sent each time a user display a search result(this includ
 
 **legs:** A json list of all searched trip legs. Each leg is a json object that include the following fields:
 
-* **From**: An iata code. Example "ARN".
+* **From**: An IATA code. Example "ARN".
 
-* **To**: An iata code.
+* **To**: An IATA code.
 
 * **Date**: The leave date specified by the user. Example 2018-12-30
 
 The length of this list will be 1 for one way searches, 2 for two way searches and n for open jaw searches (n: number for trip legs). 
 
 **device:** The type of the user device. Could be one of these three values: "DESKTOP", “TABLET” or “MOBILE”.
+
+### Unofficial metropolitan areas 
+These are "fake" metros that are only used by flygresor.se.
+
+| IATA | Name          | Airports        
+| ---- | ------------- | --------------- |
+| 001  | Warsaw        | WAW + WMI       |
+| 002  | Barcelona     | BCN + GRO + REU |
+| 003  | San Fransisco | SFO + SJC + OAK |
+| 004  | Crete         | CHQ + HER       |
+| 005  | Sardinia      | AHO + OLB + CAG |
