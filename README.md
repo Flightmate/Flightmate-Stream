@@ -90,7 +90,7 @@ To access the data stream an authentication is required. This will allow you acc
   </tr>
   <tr>
     <td>Packet type 2</td>
-    <td>Message with click out data.</td>
+    <td>Message with click out data</td>
   </tr>
   <tr>
     <td>Packet type 3</td>
