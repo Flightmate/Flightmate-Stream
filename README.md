@@ -82,15 +82,15 @@ To access the data stream an authentication is required. This will allow you acc
   </tr>
     <tr>
     <td>Body size</td>
-    <td>Byte length of Protobuf</td>
+    <td>Byte length of Protobuf/JSON message</td>
   </tr>
   <tr>
     <td>Packet type 1</td>
-    <td>JSON message with search data</td>
+    <td>Message with search data</td>
   </tr>
   <tr>
     <td>Packet type 2</td>
-    <td>JSON message with click out data.</td>
+    <td>Message with click out data.</td>
   </tr>
   <tr>
     <td>Packet type 3</td>
