@@ -34,6 +34,8 @@ Flightmate AI-Stream is a stream of data containing all results displayed to the
 
 To access the data stream an authentication is required. This will allow you access to the datastream and unmask the OTA signatures your allowed to see. If an authentication packet is malformed or does not match the server will drop the client. The authentication packet is a character sequence of 128 bytes and is supplied by Flightmate to the OTA. Please contact Valdemar at valle@flygresor.se for this.
 
+
+
 ![image alt text](continuous.png)
 
 ## **Server information**
@@ -116,43 +118,9 @@ Then you can verify the package with the checksum using the crc32 algorithm. We 
 
 There are two types of packets you can receive from the stream. Packet type 1 contains search results showed to the user, and packet type 2 contains information about when a user clicks out on a trip and gets transferred to a OTA. 
 
-### Click packet:
-
-The click packet is sent out each time a user clicks out from one of the sites and contains the following data:
-
-**price:** The price of the flight the user clicked on.
-
-**name:** The name of the OTA providing the result the user clicked on. This is masked if you don’t have access to that OTA.
-
-**searchIdentifier:** This is a hash of some data specific to the trip the user clicked on making it possible to match it to a specific search result.
-
-**domain:** The domain name of the site the outclick came from.
-
-**isBaggageIncluded:** A boolean indicating whether the user has activated the baggage included filter or not.
-
-**legs:** A json list of all searched trip legs. Each leg is a json object that include the following fields:
-
-* **From**: An IATA code. Example "ARN".
-
-* **To**: An IATA code.
-
-* **Date**: The leave date specified by the user. Example 2018-12-30
-
-**leaveDate:** The date of the flight leaving the departure location.
-
-**homeDate:** The date of departure for the return flight.
-
-**adults:** The number of adults specified in the search.
-
-**childrenAges:** The ages of the children specified by the user when the search is made.
-
-**youthAges:** The ages of the youths (12-25) specified by the user when the search is made.
-
-**device:** The type of the user device. Could be one of these three values: "DESKTOP", “TABLET” or “MOBILE”.
-
 ### Search packet:
 
-The search packets are sent each time a user display a search result (this includes users opening results from top-list and last minute). They contain the following data:
+The search packets are sent each time a user display a search result (this includes users opening results from top-list and last minute). This also triggers when users apply filters or scroll to load in more results on the page, but the ShowresultId then stays consistent. They contain the following data:
 
 **to:** The IATA code of the airport the flight is arriving to.
 
@@ -197,6 +165,44 @@ The search packets are sent each time a user display a search result (this inclu
 The length of this list will be 1 for one way searches, 2 for two way searches and n for open jaw searches (n: number for trip legs). 
 
 **device:** The type of the user device. Could be one of these three values: "DESKTOP", “TABLET” or “MOBILE”.
+
+**showResultId** The unique identifier from the originating search packet (see description above). 
+
+### Click packet:
+
+The click packet is sent out each time a user clicks out from one of the sites and contains the following data:
+
+**price:** The price of the flight the user clicked on.
+
+**name:** The name of the OTA providing the result the user clicked on. This is masked if you don’t have access to that OTA.
+
+**searchIdentifier:** This is a hash of some data specific to the trip the user clicked on making it possible to match it to a specific search result.
+
+**domain:** The domain name of the site the outclick came from.
+
+**isBaggageIncluded:** A boolean indicating whether the user has activated the baggage included filter or not.
+
+**legs:** A json list of all searched trip legs. Each leg is a json object that include the following fields:
+
+* **From**: An IATA code. Example "ARN".
+
+* **To**: An IATA code.
+
+* **Date**: The leave date specified by the user. Example 2018-12-30
+
+**leaveDate:** The date of the flight leaving the departure location.
+
+**homeDate:** The date of departure for the return flight.
+
+**adults:** The number of adults specified in the search.
+
+**childrenAges:** The ages of the children specified by the user when the search is made.
+
+**youthAges:** The ages of the youths (12-25) specified by the user when the search is made.
+
+**device:** The type of the user device. Could be one of these three values: "DESKTOP", “TABLET” or “MOBILE”.
+
+**showresultId** An unique identifier for each packet. 
 
 ### Unofficial metropolitan areas 
 These are "fake" metros that are only used by flygresor.se.
