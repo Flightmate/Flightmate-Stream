@@ -211,6 +211,6 @@ These are "fake" metros that are only used by flygresor.se.
 | ---- | ------------- | --------------- |
 | 001  | Warsaw        | WAW + WMI       |
 | 002  | Barcelona     | BCN + GRO + REU |
-| 003  | San Fransisco | SFO + SJC + OAK |
+| 003  | San Francisco | SFO + SJC + OAK |
 | 004  | Crete         | CHQ + HER       |
 | 005  | Sardinia      | AHO + OLB + CAG |
