@@ -204,8 +204,9 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 **showresultId** An unique identifier for each packet. 
 
-### Unofficial metropolitan areas 
-These are "fake" metros that are only used by flygresor.se.
+### Unofficial metropolitan areas
+Flightmate has internal numeric iata codes(unofficial metropolitan areas) for grouping of iata codes, the table below show the mapping to the corresponding iata code.
+A search to an unofficial metro will result in parallel searches.
 
 | IATA | Name          | Airports        
 | ---- | ------------- | --------------- |
