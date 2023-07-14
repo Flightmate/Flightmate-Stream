@@ -118,7 +118,7 @@ Then you can verify the package with the checksum using the crc32 algorithm. We 
 
 There are two types of packets you can receive from the stream. Packet type 1 contains search results showed to the user, and packet type 2 contains information about when a user clicks out on a trip and gets transferred to a OTA. 
 
-### Search packet:
+### Search packet
 
 The search packets are sent each time a user display a search result (this includes users opening results from top-list and last minute). This also triggers when users apply filters or scroll to load in more results on the page, but the ShowresultId then stays consistent. They contain the following data:
 
@@ -168,7 +168,7 @@ The length of this list will be 1 for one way searches, 2 for two way searches a
 
 **showResultId** The unique identifier from the originating search packet (see description above). 
 
-### Click packet:
+### Click packet
 
 The click packet is sent out each time a user clicks out from one of the sites and contains the following data:
 
@@ -205,7 +205,7 @@ The click packet is sent out each time a user clicks out from one of the sites a
 **showresultId** An unique identifier for each packet. 
 
 ### Unofficial metropolitan areas
-Flightmate has internal numeric iata codes(unofficial metropolitan areas) for grouping of iata codes, the table below show the mapping to the corresponding iata code.
+Flightmate has internal numeric iata codes(unofficial metropolitan areas) for grouping of iata codes. The table below shows the mapping to the corresponding iata code.
 A search to an unofficial metro will result in parallel searches.
 
 | IATA | Name          | Airports        
