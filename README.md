@@ -172,7 +172,7 @@ The length of this list will be 1 for one way searches, 2 for two way searches a
 
 The click packet is sent out each time a user clicks out from one of the sites and contains the following data:
 
-**price:** The price of the flight the user clicked on.
+**price:** The total price of the flight offer the user clicked on.
 
 **name:** The name of the OTA providing the result the user clicked on. This is masked if you don’t have access to that OTA.
 
