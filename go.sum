@@ -1,7 +1,7 @@
-github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20220105101636-f53ff4a09e8c h1:aewz/3oj3/n0SNXEj4nRKJJKnS3FzlVCZLdxZW4uI/c=
-github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20220105101636-f53ff4a09e8c/go.mod h1:bZkOVX3x5a0LuJW3eEU1DO9Xe835W1MAIp3TD4/9MlI=
-github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20220105101636-f53ff4a09e8c h1:Nh/Z3RkIFFAaUBPRpO5eTvHCKs5oPnJBCPHR9TeApZ0=
-github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20220105101636-f53ff4a09e8c/go.mod h1:waCsmukeKewfv+JYCUcIHFVUrNIVusdqkS29iq/kovk=
+github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20250916115538-6526b004b426 h1:V98h3jfXSCe4pYe8TcPhBXPCllRe2JOmfxz3KV2lybw=
+github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20250916115538-6526b004b426/go.mod h1:DmQH3Uu7Cetwy4P6LRFcxI4YGtQcDad61Jv/zWTHVjM=
+github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20250916115538-6526b004b426 h1:R2xjOR8cP15ygZszkOwacohjy1meLI+umawqSLatpgE=
+github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20250916115538-6526b004b426/go.mod h1:k0IkGvljhAPvYVKUEM6KIApTf4hMisG1QC519LOTh2o=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/google/go-cmp v0.5.5 h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=

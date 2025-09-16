@@ -17,16 +17,19 @@ If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --s
 
 If you use the downloaded binaries (found under [Releases](/releases/latest)). (Note that you might get a "possible virus" warning, because we haven't bought an app certificate yet. This will be fixed in later versions): 
 - Navigate to the file's location
-- You might have to run chmod +x [filename] to change permissions 
+- You might have to run `chmod +x [filename]` to change permissions 
 - Run `./filename --token=YOUR_TOKEN_HERE` 
 
 You can build the files yourself using: 
-- env GOOS=windows  GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go
-- env GOOS=windows  GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go
-- env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go
-- env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go
-- env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go
-- env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go
+- `env GOOS=windows GOARCH=386 go build -o executables/streamclient-windows-386.exe client.go`
+- `env GOOS=windows GOARCH=amd64 go build -o executables/streamclient-windows.exe client.go`
+- `env GOOS=darwin GOARCH=386 go build -o executables/streamclient-macOS-386 client.go`
+- `env GOOS=darwin GOARCH=amd64 go build -o executables/streamclient-macOS client.go`
+- `env GOOS=linux GOARCH=386 go build -o executables/streamclient-linux-386 client.go`
+- `env GOOS=linux GOARCH=amd64 go build -o executables/streamclient-linux client.go `
+
+To update the search and click packet protobuf definition packages: 
+- `go get github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet && go get github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet`
 
 ## **System description**
 
