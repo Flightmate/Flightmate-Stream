@@ -1,29 +1,36 @@
 {
-	"leaveDate": "2019-04-22",
-	"to": "NYC",
-	"searchIdentifier": "e2a7ddce4f8dfb4717cb9fa3c6f92d72",
-	"tripType": "1",
-	"from": "OSL",
-	"domain": "flyreiser.no",
-	"ticketType": "0",
-	"price": 6644,
-	"childrenAges": "",
-    "youthAges": "",
-	"isBaggageIncluded": true,
-	"homeDate": "2019-04-29",
-	"name": "<ota_name>",
-	"searchTimestamp": "1544520395",
-	"adults": "2",
-	"legs": [
-		{
-			"to": "NYC",
-			"from": "OSL",
-			"date": "2019-04-22"
-		},
-		{
-			"to": "OSL",
-			"from": "NYC",
-			"date": "2019-04-29"
-		}
-	]
+  "showresultId": "4a62a5b12446abaff6cea2223829dfe9e6bbf790e3d5e2a50a3c4935523615a1",
+  "leaveDate": "2026-04-03",
+  "homeDate": "2026-04-05",
+  "adults": 2,
+  "childrenAges": "4,11",
+  "youthAges": "",
+  "ticketType": "0",
+  "searchTimestamp": "1774006507",
+  "to": "NYC",
+  "from": "STO",
+  "tripType": "1",
+  "domain": "flygresor.se",
+  "legs": [
+    {
+      "from": "STO",
+      "to": "NYC",
+      "date": "2026-04-03",
+      "allDepartureIatas": ["STO"],
+      "allDestinationIatas": ["NYC"]
+    },
+    {
+      "from": "NYC",
+      "to": "STO",
+      "date": "2026-04-05",
+      "allDepartureIatas": ["NYC"],
+      "allDestinationIatas": ["STO"]
+    }
+  ],
+  "device": "DESKTOP",
+  "clicked": {
+    "agentCode": "<ota_name>",
+    "price": 28675
+  },
+  "searchIdentifier": "2aaa38cc5cdb6063e6d54fac4ec2ebc3"
 }
