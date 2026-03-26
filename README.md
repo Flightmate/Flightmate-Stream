@@ -154,21 +154,25 @@ The search packets are sent each time a user display a search result (this inclu
 
 * **trips:** List of the trips such as leave and home trip.
 
-**isBaggageIncluded:** A boolean indicating whether the user has activated the baggage included filter or not.
+**legs:** A list of all searched trip legs. Each leg contains:
 
-**legs:** A json list of all searched trip legs. Each leg is a json object that include the following fields:
+* **from**: An IATA code. Example "ARN".
 
-* **From**: An IATA code. Example "ARN".
+* **to**: An IATA code.
 
-* **To**: An IATA code.
+* **date**: The leave date specified by the user. Example 2018-12-30
 
-* **Date**: The leave date specified by the user. Example 2018-12-30
+* **allDepartureIatas**: All IATA codes considered for departure (relevant for multi-airport searches).
 
-The length of this list will be 1 for one way searches, 2 for two way searches and n for open jaw searches (n: number for trip legs). 
+* **allDestinationIatas**: All IATA codes considered for arrival.
 
-**device:** The type of the user device. Could be one of these three values: "DESKTOP", “TABLET” or “MOBILE”.
+**device:** The type of the user device. Could be one of these three values: "DESKTOP", "TABLET" or "MOBILE".
 
-**showResultId** The unique identifier from the originating search packet (see description above). 
+**showResultId** The unique identifier from the originating search packet (see description above).
+
+**filters:** An object containing the user's active search filters. See [Filters](#filters) below.
+
+See [example-json/example_search_packet.json](example-json/example_search_packet.json) for a full example.
 
 ### Click packet
 
@@ -176,21 +180,23 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 **price:** The total price of the flight offer the user clicked on.
 
-**name:** The name of the OTA providing the result the user clicked on. This is masked if you don’t have access to that OTA.
+**name:** The name of the OTA providing the result the user clicked on. This is masked if you don't have access to that OTA.
 
 **searchIdentifier:** This is a hash of some data specific to the trip the user clicked on making it possible to match it to a specific search result.
 
 **domain:** The domain name of the site the outclick came from.
 
-**isBaggageIncluded:** A boolean indicating whether the user has activated the baggage included filter or not.
+**legs:** A list of all searched trip legs. Each leg contains:
 
-**legs:** A json list of all searched trip legs. Each leg is a json object that include the following fields:
+* **from**: An IATA code. Example "ARN".
 
-* **From**: An IATA code. Example "ARN".
+* **to**: An IATA code.
 
-* **To**: An IATA code.
+* **date**: The leave date specified by the user. Example 2018-12-30
 
-* **Date**: The leave date specified by the user. Example 2018-12-30
+* **allDepartureIatas**: All IATA codes considered for departure.
+
+* **allDestinationIatas**: All IATA codes considered for arrival.
 
 **leaveDate:** The date of the flight leaving the departure location.
 
@@ -202,9 +208,35 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 **youthAges:** The ages of the youths (12-25) specified by the user when the search is made.
 
-**device:** The type of the user device. Could be one of these three values: "DESKTOP", “TABLET” or “MOBILE”.
+**device:** The type of the user device. Could be one of these three values: "DESKTOP", "TABLET" or "MOBILE".
 
-**showresultId** An unique identifier for each packet. 
+**showresultId** An unique identifier for each packet.
+
+See [example-json/example_click_packet.json](example-json/example_click_packet.json) for a full example.
+
+### Filters
+
+Search packets include a `filters` object with the user's active search filters. Note that all fields are optional, and the type's default values shouldn't be used if the field is not set. The list below mirrors the order of the filters as displayed on the site.
+
+List/array fields (`enabledAirlines`, `enabledAgents`, `airportDepartures`, `airportArrivals`, `airportStops`, `airportWaitTime`, `departureTime`, `arrivalTime`) are wrapped in a `{"values": [...]}` object due to protobuf3 not supporting optional repeated fields.
+
+* **flexTicket**: only show flights with flexible/rebookable tickets. The rebooking cost is added to the ticket price
+* **baggageIncluded**: only show flights where checked baggage is included/added to the ticket price. Business/First/Economy Plus automatically pass this filter
+* **cabinBaggageIncluded**: only show flights where cabin baggage is included/added to the price
+* **climateCompensated**: only show flights from OTAs that support CO2/climate compensation, or flights with zero emissions
+* **price**: maximum price. Agents with prices above this are filtered out
+* **numStops**: maximum number of stops. 0 means direct flights only
+* **changesAirport**: if true, filter away flights that require changing airports during a connection
+* **airportWaitTime**: filter connections by layover time. `{"values": [min, max]}` in seconds
+* **traveltime**: maximum total travel time in seconds
+* **departureTime**: list of departure time window filters. `{"values": [{"tripIndex", "start", "end"}]}` (seconds from midnight)
+* **arrivalTime**: list of arrival time window filters, same format as departureTime
+* **enabledAirlines**: list of airline codes the user has enabled. `{"values": [...]}`. All segments must use airlines from this list
+* **airportDepartures**: list of _disallowed_ departure airports. `{"values": [...]}`
+* **airportArrivals**: list of _disallowed_ arrival airports. `{"values": [...]}`
+* **airportStops**: list of _disallowed_ transfer/stopover airports. `{"values": [...]}`
+* **enabledAgents**: list of OTA agent codes the user wants to see results from. `{"values": [...]}`
+* **youthTicket**: only show youth ticket fares from youth-ticket-supporting agents
 
 ### Unofficial metropolitan areas
 Flightmate has internal numeric iata codes(unofficial metropolitan areas) for grouping of iata codes. The table below shows the mapping to the corresponding iata code.

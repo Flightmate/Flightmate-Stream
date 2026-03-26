@@ -1,169 +1,69 @@
 {
-	"from": "ARN",
-	"to": "AMS",
-	"domain": "flygresor.se",
-	"tripType": "1",
-	"ticketType": "0",
-	"adults": "1",
-	"childrenAges": "",
-	"youthAges": "",
-	"isBaggageIncluded": false,
-	"homeDate": "2019-02-10",
-	"leaveDate": "2019-02-03",
-	"searchTimestamp": "1544519658",
-	"legs": [
-		{
-			"to": "AMS",
-			"from": "ARN",
-			"date": "2019-02-03"
-		},
-		{
-			"to": "ARN",
-			"from": "AMS",
-			"date": "2019-02-10"
-		}
-	],
-	"flights": [
-		{
-			"trips": [
-				{
-					"segments": [
-						{
-							"departureAirport": "ARN",
-							"departureDate": "2019-02-03 15:10",
-							"flight": "SK1407",
-							"arrivalAirport": "CPH",
-							"traveltime": 4200,
-							"arrivalDate": "2019-02-03 16:20"
-						},
-						{
-							"departureAirport": "CPH",
-							"departureDate": "2019-02-04 15:25",
-							"flight": "SK1549",
-							"arrivalAirport": "AMS",
-							"traveltime": 5100,
-							"arrivalDate": "2019-02-04 16:50"
-						}
-					]
-				},
-				{
-					"segments": [
-						{
-							"departureAirport": "AMS",
-							"departureDate": "2019-02-10 19:30",
-							"flight": "SK1556",
-							"arrivalAirport": "ARN",
-							"traveltime": 7200,
-							"arrivalDate": "2019-02-10 21:30"
-						}
-					]
-				}
-			],
-			"agents": [
-				{
-					"name": "<ota_name>",
-					"price": 1331
-				},
-				{
-					"name": "<ota_name>",
-					"price": 1332
-				}
-			],
-			"searchIdentifier": "985c2445d4d2d8e87b219ffccae5b3da"
-		},
-		{
-			"trips": [
-				{
-					"segments": [
-						{
-							"departureAirport": "ARN",
-							"departureDate": "2019-02-03 06:30",
-							"flight": "KL1104",
-							"arrivalAirport": "AMS",
-							"traveltime": 7800,
-							"arrivalDate": "2019-02-03 08:40"
-						}
-					]
-				},
-				{
-					"segments": [
-						{
-							"departureAirport": "AMS",
-							"departureDate": "2019-02-10 13:55",
-							"flight": "AF1641",
-							"arrivalAirport": "CDG",
-							"traveltime": 4500,
-							"arrivalDate": "2019-02-10 15:10"
-						},
-						{
-							"departureAirport": "CDG",
-							"departureDate": "2019-02-11 09:15",
-							"flight": "AF1262",
-							"arrivalAirport": "ARN",
-							"traveltime": 9300,
-							"arrivalDate": "2019-02-11 11:50"
-						}
-					]
-				}
-			],
-			"agents": [
-				{
-					"name": "<ota_name>",
-					"price": 1348
-				}
-			],
-			"searchIdentifier": "566d37b477aa820878deb95ad32ec9ac"
-		},
-		{
-			"trips": [
-				{
-					"segments": [
-						{
-							"departureAirport": "ARN",
-							"departureDate": "2019-02-03 13:20",
-							"flight": "DY4257",
-							"arrivalAirport": "AMS",
-							"traveltime": 7200,
-							"arrivalDate": "2019-02-03 15:20"
-						}
-					]
-				},
-				{
-					"segments": [
-						{
-							"departureAirport": "AMS",
-							"departureDate": "2019-02-10 08:05",
-							"flight": "AF8229",
-							"arrivalAirport": "CDG",
-							"traveltime": 5100,
-							"arrivalDate": "2019-02-10 09:30"
-						},
-						{
-							"departureAirport": "CDG",
-							"departureDate": "2019-02-10 21:00",
-							"flight": "AF1462",
-							"arrivalAirport": "ARN",
-							"traveltime": 9600,
-							"arrivalDate": "2019-02-10 23:40"
-						}
-					]
-				}
-			],
-			"agents": [
-				{
-					"name": "<ota_name>",
-					"price": 1354
-				},
-				{
-					"name": "<ota_name>",
-					"price": 1355
-				},
-				{
-					"name": "<ota_name>",
-					"price": 1364
-				}
-			],
-			"searchIdentifier": "1a7f235c98c421291e07c44c738fe869"
-		}
-	]
+  "showresultId": "4a62a5b12446abaff6cea2223829dfe9e6bbf790e3d5e2a50a3c4935523615a1",
+  "leaveDate": "2026-04-03",
+  "homeDate": "2026-04-05",
+  "adults": 2,
+  "childrenAges": "4,11",
+  "youthAges": "",
+  "ticketType": "0",
+  "searchTimestamp": "1774006507",
+  "to": "NYC",
+  "from": "STO",
+  "tripType": "1",
+  "domain": "flygresor.se",
+  "legs": [
+    {
+      "from": "STO",
+      "to": "NYC",
+      "date": "2026-04-03",
+      "allDepartureIatas": ["STO"],
+      "allDestinationIatas": ["NYC"]
+    },
+    {
+      "from": "NYC",
+      "to": "STO",
+      "date": "2026-04-05",
+      "allDepartureIatas": ["NYC"],
+      "allDestinationIatas": ["STO"]
+    }
+  ],
+  "device": "DESKTOP",
+  "flights": [
+    {
+      "agents": [
+        {
+          "agent": "<ota_name",
+          "price": 28675
+        }
+      ],
+      "trips": [
+        {
+          "segments": [
+            {
+              "arrivalAirport": "EWR",
+              "arrivalDate": "2026-04-03 13:15",
+              "departureAirport": "ARN",
+              "departureDate": "2026-04-03 10:45",
+              "traveltime": 30600,
+              "flight": "SK903"
+            }
+          ]
+        },
+        {
+          "segments": [
+            {
+              "arrivalAirport": "ARN",
+              "arrivalDate": "2026-04-06 07:15",
+              "departureAirport": "EWR",
+              "departureDate": "2026-04-05 17:20",
+              "traveltime": 28500,
+              "flight": "SK904"
+            }
+          ]
+        }
+      ],
+      "searchIdentifier": "2aaa38cc5cdb6063e6d54fac4ec2ebc3"
+    }
+  ],
+  "filters": {}
 }

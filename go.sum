@@ -1,7 +1,9 @@
-github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20250916115538-6526b004b426 h1:V98h3jfXSCe4pYe8TcPhBXPCllRe2JOmfxz3KV2lybw=
-github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20250916115538-6526b004b426/go.mod h1:DmQH3Uu7Cetwy4P6LRFcxI4YGtQcDad61Jv/zWTHVjM=
-github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20250916115538-6526b004b426 h1:R2xjOR8cP15ygZszkOwacohjy1meLI+umawqSLatpgE=
-github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20250916115538-6526b004b426/go.mod h1:k0IkGvljhAPvYVKUEM6KIApTf4hMisG1QC519LOTh2o=
+github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20260320111747-bddcd91ee1a2 h1:0jgf6A+p3oDQWuSUVTxPH8Fenc+3c9bZU1Kqy0pzU6s=
+github.com/Flightmate/Flightmate-Stream-Protobuf/click_packet v0.0.0-20260320111747-bddcd91ee1a2/go.mod h1:8JXGcf86UrBsOl3o2RhkIf0iaJuR0dU0I7XU0uzUcuo=
+github.com/Flightmate/Flightmate-Stream-Protobuf/filters v0.0.1 h1:mi5JWKHifFilfqvS/ifLcXkkm5R0RI2Y1fPIHkSYwKo=
+github.com/Flightmate/Flightmate-Stream-Protobuf/filters v0.0.1/go.mod h1:azeZ+KJwh48aYQrqYmI8hLzoYwpoH3HlGpeeXTF4TtM=
+github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20260320111747-bddcd91ee1a2 h1:eXtmp13EUbUp/e7CAdQG68701xLqpo7Xa2h4TflG/cg=
+github.com/Flightmate/Flightmate-Stream-Protobuf/search_packet v0.0.0-20260320111747-bddcd91ee1a2/go.mod h1:uxxwBpo9zmYxhevzPjED07huQ0gOWybWqgJwKHzks5I=
 github.com/golang/protobuf v1.5.0/go.mod h1:FsONVRAS9T7sI+LIUmWTfcYkHO4aIWwzhcaSAoJOfIk=
 github.com/google/go-cmp v0.5.5 h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
