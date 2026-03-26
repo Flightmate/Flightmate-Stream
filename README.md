@@ -4,7 +4,7 @@
 
 This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
 
-The server now uses [Protobuf](https://www.wikiwand.com/en/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. 
+The server now uses [Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. 
 
 We have also upgraded to using TLS instead of SSL, and (at least temporarily) use port 444 instead of 443. 
 
@@ -49,7 +49,7 @@ To access the data stream an authentication is required. This will allow you acc
   </tr>
   <tr>
     <td>Port</td>
-    <td>444</td>
+    <td>445</td>
   </tr>
   <tr>
     <td>Protocol</td>
@@ -142,7 +142,7 @@ The search packets are sent each time a user display a search result (this inclu
 
 **searchTimestamp:** A UNIX timestamp for when the search was made.
 
-**ticketType:** 0 = Economy, 1 = Bussiness class, 2 = First class, 3 = Economy plus 
+**ticketType:** 0 = Economy, 1 = Business class, 2 = First class, 3 = Economy plus 
 
 **adults:** The number of adults specified in the search.
 
