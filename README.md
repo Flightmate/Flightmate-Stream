@@ -6,8 +6,6 @@ This version of the AI-stream is rewritten from Python to Golang to be able to h
 
 The server now uses [Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. 
 
-We have also upgraded to using TLS instead of SSL, and (at least temporarily) use port 444 instead of 443. 
-
 ## **Installation instructions**
 
 If you want to run by cloning the repo (`git clone -b Flightmate-Stream-2022 --single-branch https://github.com/Flightmate/Flightmate-Stream/`):
