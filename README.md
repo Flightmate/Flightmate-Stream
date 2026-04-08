@@ -1,10 +1,18 @@
 # **Flightmate AI-Stream Documentation**
 
-## **Changes**
+## **Changes 2026**
+We have released a new version of the AI-stream that introduces a `filters` field for search packets. It includes most filters flygresor.se users can apply, including many previously not sent in the stream such as our product filters `flexTicket`, `youthTicket` and `climateCompensated`. We have also incorporated feedback to make it clearer when searches are made with multiple departure and destination IATAs selected, with the new subfields `allDepartureIatas` and `allDestinationIatas`.
 
-This version of the AI-stream is rewritten from Python to Golang to be able to handle heavier loads. 
+The old version of the stream will also continue to be available until its deprecation date the 20th of September this year. 
 
-The server now uses [Protobuf](https://en.wikipedia.org/wiki/Protocol_Buffers) for faster communication, but the client can convert it into JSON (e.g. by using the optional parameter `--print_json=true`). You can also print exclusively JSON to stdout by using the flag `--stdout=true`. 
+A complete list of breaking changes:
+- The port has changed from 444 to 445
+- New Protobuf definitions in https://github.com/Flightmate/Flightmate-Stream-Protobuf 
+- The `isBaggageIncluded` and `isCabinBaggageIncluded` fields have been moved into the new `filters` field 
+- The `code` field has been changed to an `agent` field, meaning that the OTA brand strings are no longer prefixed by country codes
+
+And possibly breaking depending on your implementation:
+- The `price` field in Protobuf has been changed from an int to a float
 
 ## **Installation instructions**
 
