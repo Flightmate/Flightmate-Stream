@@ -192,7 +192,7 @@ func parameterFunc() {
 	parameter_token := flag.String("token", "", "insert your token 128 alphanumerical chars")
 
 	parameter_host = flag.String("host", "ai-stream.flightmate.com", "target host you wish to connect to")
-	parameter_port := flag.Int("port", 445, "host target port")
+	parameter_port := flag.Int("port", 446, "host target port")
 
 	flag.Parse()
 

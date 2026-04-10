@@ -1,15 +1,16 @@
 # **Flightmate AI-Stream Documentation**
 
 ## **Changes 2026**
-We have released a new version of the AI-stream that introduces a `filters` field for search packets. It includes most filters flygresor.se users can apply, including many previously not sent in the stream such as our product filters `flexTicket`, `youthTicket` and `climateCompensated`. We have also incorporated feedback to make it clearer when searches are made with multiple departure and destination IATAs selected, with the new subfields `allDepartureIatas` and `allDestinationIatas`.
+We have released a new version of the AI-stream that introduces a `filters` field for search packets. It includes most filters flygresor.se users can apply, including many previously not sent in the stream such as our product filters `flexTicket`, `youthTicket` and `climateCompensated`. We have also incorporated feedback to make it clearer when searches are made with multiple departure and destination IATAs selected, by making the `from` and `to` fields inside `legs` contain all IATA codes the user specified.
 
 The old version of the stream will also continue to be available until its deprecation date the 20th of September this year. 
 
 A complete list of breaking changes:
-- The port has changed from 444 to 445
+- The port has changed from 444 to 446
 - New Protobuf definitions in https://github.com/Flightmate/Flightmate-Stream-Protobuf 
 - The `isBaggageIncluded` and `isCabinBaggageIncluded` fields have been moved into the new `filters` field 
 - The `code` field has been changed to an `agent` field, meaning that the OTA brand strings are no longer prefixed by country codes
+- The `from` and `to` fields in `legs` changed from strings to arrays containing all IATA codes the user specified
 
 And possibly breaking depending on your implementation:
 - The `price` field in Protobuf has been changed from an int to a float
@@ -55,7 +56,7 @@ To access the data stream an authentication is required. This will allow you acc
   </tr>
   <tr>
     <td>Port</td>
-    <td>445</td>
+    <td>446</td>
   </tr>
   <tr>
     <td>Protocol</td>
@@ -162,15 +163,11 @@ The search packets are sent each time a user display a search result (this inclu
 
 **legs:** A list of all searched trip legs. Each leg contains:
 
-* **from**: An IATA code. Example "ARN".
+* **from**: A list of departure IATA codes. Example `["ARN", "BMA"]`.
 
-* **to**: An IATA code.
+* **to**: A list of destination IATA codes. Example `["BCN"]`.
 
 * **date**: The leave date specified by the user. Example 2018-12-30
-
-* **allDepartureIatas**: All IATA codes considered for departure (relevant for multi-airport searches).
-
-* **allDestinationIatas**: All IATA codes considered for arrival.
 
 **device:** The type of the user device. Could be one of these three values: "DESKTOP", "TABLET" or "MOBILE".
 
@@ -194,15 +191,11 @@ The click packet is sent out each time a user clicks out from one of the sites a
 
 **legs:** A list of all searched trip legs. Each leg contains:
 
-* **from**: An IATA code. Example "ARN".
+* **from**: A list of departure IATA codes. Example `["ARN", "BMA"]`.
 
-* **to**: An IATA code.
+* **to**: A list of destination IATA codes. Example `["BCN"]`.
 
 * **date**: The leave date specified by the user. Example 2018-12-30
-
-* **allDepartureIatas**: All IATA codes considered for departure.
-
-* **allDestinationIatas**: All IATA codes considered for arrival.
 
 **leaveDate:** The date of the flight leaving the departure location.
 
