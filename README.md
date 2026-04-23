@@ -11,6 +11,8 @@ A complete list of breaking changes:
 - The `isBaggageIncluded` and `isCabinBaggageIncluded` fields have been moved into the new `filters` field 
 - The `code` field has been changed to an `agent` field, meaning that the OTA brand strings are no longer prefixed by country codes
 - The `from` and `to` fields in `legs` changed from strings to arrays containing all IATA codes the user specified
+- `ticketType` and `tripType` datatypes changed from strings to uint32
+- `childrenAges` and `youthAges` datatypes changed from comma-separated strings to arrays of uint32
 
 And possibly breaking depending on your implementation:
 - The `price` field in Protobuf has been changed from an int to a float
@@ -179,37 +181,15 @@ See [example-json/example_search_packet.json](example-json/example_search_packet
 
 ### Click packet
 
-The click packet is sent out each time a user clicks out from one of the sites and contains the following data:
+The click packet is sent out each time a user clicks out from one of the sites. It contains the same fields as the search packet (see above), except for `flights` and `filters`, plus these additional fields:
 
-**price:** The total price of the flight offer the user clicked on.
+**clicked:** The OTA and price the user clicked on.
 
-**name:** The name of the OTA providing the result the user clicked on. This is masked if you don't have access to that OTA.
+* **agentCode:** The name of the OTA providing the result the user clicked on. This is masked if you don't have access to that OTA.
+
+* **price:** The total price of the flight the user clicked on.
 
 **searchIdentifier:** This is a hash of some data specific to the trip the user clicked on making it possible to match it to a specific search result.
-
-**domain:** The domain name of the site the outclick came from.
-
-**legs:** A list of all searched trip legs. Each leg contains:
-
-* **from**: A list of departure IATA codes. Example `["ARN", "BMA"]`.
-
-* **to**: A list of destination IATA codes. Example `["BCN"]`.
-
-* **date**: The leave date specified by the user. Example 2018-12-30
-
-**leaveDate:** The date of the flight leaving the departure location.
-
-**homeDate:** The date of departure for the return flight.
-
-**adults:** The number of adults specified in the search.
-
-**childrenAges:** The ages of the children specified by the user when the search is made.
-
-**youthAges:** The ages of the youths (12-25) specified by the user when the search is made.
-
-**device:** The type of the user device. Could be one of these three values: "DESKTOP", "TABLET" or "MOBILE".
-
-**showresultId** An unique identifier for each packet.
 
 See [example-json/example_click_packet.json](example-json/example_click_packet.json) for a full example.
 

@@ -3,13 +3,13 @@
   "leaveDate": "2026-04-03",
   "homeDate": "2026-04-05",
   "adults": 2,
-  "childrenAges": "4,11",
-  "youthAges": "",
-  "ticketType": "0",
+  "childrenAges": [4, 11],
+  "youthAges": [],
+  "ticketType": 0,
   "searchTimestamp": "1774006507",
   "to": "NYC",
   "from": "STO",
-  "tripType": "1",
+  "tripType": 1,
   "domain": "flygresor.se",
   "legs": [
     {
